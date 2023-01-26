@@ -1,0 +1,19 @@
+import React from 'react'
+import { Box} from 'native-base'
+import HeadERLano from '../HeadERLano';
+import FooterLano from '../FooterLano';
+import FooterLanoContent from './FooterLanoContent';
+import PaquetsHeaderContent from './PaquetsHeaderContent';
+import ListePaquets from './ListePaquets';
+
+export default function Paquets(props) {
+  return (
+    <Box>
+        <HeadERLano active = {props.active} backG ={props.bG}/>
+        <PaquetsHeaderContent/>
+        <ListePaquets/>
+        <FooterLanoContent />
+        <FooterLano />
+    </Box>
+  )
+}
