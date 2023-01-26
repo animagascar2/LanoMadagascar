@@ -166,7 +166,6 @@ export default function HeadERLano(props) {
               pb="16 px"
               px="32 px"
             >
-              {" "}
               <Link to="/Connexion" style={styles.textDeco}>
                 <Text color="white" style={styles.btnReservezText}>
                   Connexion

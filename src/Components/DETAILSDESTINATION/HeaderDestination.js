@@ -3,6 +3,7 @@ import { Box, Flex, Text, Button, Input } from "native-base";
 import { styles } from "../../styles";
 import { Link } from "react-router-dom";
 
+
 export default function HeaderDestination(props) {
   return (
     <Box zIndex={10}>
@@ -23,6 +24,7 @@ export default function HeaderDestination(props) {
               width="376px"
               height="38px"
               bg="white"
+              color='white'
               rounded="full"
               InputRightElement={
                 <Box mr="2">

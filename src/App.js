@@ -12,6 +12,7 @@ import {
   NativeBaseProvider,
 } from "native-base";
 import Connexion from './Components/CONNEXION/Connexion';
+import Inscription from './Components/CONNEXION/Inscription';
 
 
 function App() {
@@ -20,7 +21,8 @@ function App() {
       <BrowserRouter>
       <Routes>
         <Route path="/" element={<Accueil active="Accueil" bG='rgba(23, 23, 23, 0.59)' />} />
-        <Route path="/" element={<Connexion/>} />
+        <Route path="/Connexion" element={<Connexion/>} />
+        <Route path="/Inscription" element={<Inscription/>} />
         <Route path="paquets" element={<Paquets active='Paquets' bG='rgba(23, 23, 23, 0.59)'/>} />
         <Route path="shop" element={<Shop active='Shop' />} />
         <Route path="/Shop/Shopproduct" element={<Shopproduct active='Shop'/>} />

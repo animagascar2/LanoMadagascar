@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Flex, Text, Divider, Heading, Button, Input } from "native-base";
+import { Box, Flex, Text, Divider, Heading, Button, Input, HStack, Checkbox } from "native-base";
 import { styles } from "../../styles";
 
 export default function FormPayement() {
@@ -333,13 +333,15 @@ export default function FormPayement() {
             </Button>
           </Box>
         </Flex>
-        <Flex direction="row" gap='21px'>
-          <Box >
+        <Flex direction="row" gap='21px' ml='290px' mt='-60px'mb='57.5px' >
+          <Flex alignItems='center' gap="7px" >
               <img src={require("../../Image/logoMastercard.png")} alt="" />
-          </Box>
-          <Box >
+              <Checkbox value="test" accessibilityLabel="This is a dummy checkbox" borderColor='black.100' bg='white ' defaultIsChecked />
+          </Flex>
+          <Flex alignItems='center' gap="10 px">
               <img src={require("../../Image/logovisa.png")} alt="" />
-          </Box>
+              <Checkbox value="test" accessibilityLabel="This is a dummy checkbox"  />
+          </Flex>
         </Flex>
       </Box>
     </Box>
