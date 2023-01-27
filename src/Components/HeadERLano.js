@@ -153,9 +153,11 @@ export default function HeadERLano(props) {
               pb="16 px"
               px="32 px"
             >
-              <Text color="black" style={styles.btnReservezText}>
-                Créer un compte
-              </Text>
+              <Link to="/Inscription" style={styles.textDeco}>
+                <Text color="black" style={styles.btnReservezText}>
+                  Créer un compte
+                </Text>
+              </Link>
             </Button>
             <Button
               w="152px"

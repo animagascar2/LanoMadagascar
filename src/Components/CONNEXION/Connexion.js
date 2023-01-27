@@ -7,13 +7,15 @@ import {
   Input,
   Heading,
   Divider,
+  Center,
 } from "native-base";
 import { Link } from "react-router-dom";
 import { styles } from "../../styles";
 
 export default function Connexion() {
   return (
-    <Flex direction="row" ml="80px" mr="52px" gap="282px">
+   <Center>
+     <Flex direction="row" ml="80px" mr="52px" gap="282px">
       <Box>
         <Box mt="32px" mb="112px">
           <img
@@ -31,7 +33,7 @@ export default function Connexion() {
         >
           Connexion
         </Heading>
-        <Flex gap="16px" w="326px" my="38px">
+        <Flex gap="30px" w="326px" my="38px">
           <Input h="48px" placeholder="Mail" />
           <Input
             h="48px"
@@ -99,7 +101,7 @@ export default function Connexion() {
           </Text>
           <Divider w="100px"></Divider>
         </Flex>
-        <Flex gap="10px">
+        <Flex gap="20px">
           <Button
             rounded="8px"
             w="100%"
@@ -147,8 +149,9 @@ export default function Connexion() {
         </Text>
       </Box>
       <Box my="13px">
-        <img src={require("../../Image/ConnexionSlideP1.png")} alt="" />
+        <img src={require("../../Image/ConnexionSlideP1.png")} alt="" height='900px' />
       </Box>
     </Flex>
+   </Center>
   );
 }

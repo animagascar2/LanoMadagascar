@@ -8,15 +8,22 @@ export default function ShopHeaderContent() {
     <>
       <Box position="absolute" w="100%" zIndex={0}>
         <img src={require("../../Image/backgroundHeaderShop.png")} alt="" />
-        <Flex mt="-68 px" mr="32.39 px" alignItems="flex-end">
-          <img
-            src={require("../../Image/LogoWhatsapp.png")}
-            alt=""
-            width="24px"
-            height="24px"
-          />
-        </Flex>
       </Box>
+      <Flex
+        position="fixed"
+        mr="32.39 px"
+        bottom={10}
+        right={0}
+        zIndex={10}
+        alignItems="flex-end"
+      >
+        <img
+          src={require("../../Image/LogoWhatsapp.png")}
+          alt=""
+          width="40px"
+          height="40px"
+        />
+      </Flex>
 
       <Box mt="192 px" ml="80 px" mb="330" w="544px">
         <Text

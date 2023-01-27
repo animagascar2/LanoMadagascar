@@ -5,8 +5,8 @@ import {  Link } from "react-router-dom";
 
 export default function ListeProductShop() {
   return (
-    <Box mx="116px">
-      <Flex direction="row" alignItems='center' mt='44px' mb="75px" gap='14px'>
+    <Box >
+      <Flex mx="116px" direction="row" alignItems='center' mt='44px' mb="75px" gap='14px'>
           <Text 
             color="black"
             fontWeight="700"
@@ -31,6 +31,7 @@ export default function ListeProductShop() {
           />
         </Flex>
       <Flex
+        mx="116px"
         direction="row" 
         gap="100 px"
         mb="71.87px"

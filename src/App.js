@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Accueil from './Components/ACCUEIL/Accueil';
 import Paquets from './Components/PAQUETS/Paquets';
 import Shop from './Components/SHOP/Shop';
@@ -18,7 +18,7 @@ import Inscription from './Components/CONNEXION/Inscription';
 function App() {
   return (
     <NativeBaseProvider>
-      <BrowserRouter>
+      
       <Routes>
         <Route path="/" element={<Accueil active="Accueil" bG='rgba(23, 23, 23, 0.59)' />} />
         <Route path="/Connexion" element={<Connexion/>} />
@@ -31,8 +31,6 @@ function App() {
         <Route path="/Apropos/ContacterNous" element={<ContacterNous active='Apropos'/>} />
         <Route path="/DetailsDestination" element={<Detailsdestination active='DetailsDestination'/>} />
       </Routes>
-    </BrowserRouter>
-      
       </NativeBaseProvider>
   );
 }

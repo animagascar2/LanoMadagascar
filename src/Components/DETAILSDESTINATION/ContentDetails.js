@@ -40,11 +40,11 @@ export default function ContentDetails() {
           </Flex>
         </Box>
       </Flex>
-      <Flex direction="row" mt="23px" >
+      <Flex direction="row" mt="23px">
         <Rate disabled allowHalf="true" value={4.5} />
         <Text
           color="black"
-          fontFamily='Mada'
+          fontFamily="Mada"
           fontWeight="600"
           fontSize="24 px"
           lineHeight="31 px"
@@ -54,15 +54,15 @@ export default function ContentDetails() {
         </Text>
       </Flex>
 
-      <Flex direction="row" justifyContent="space-between" mt='19px'>
-        <Box w='619px'>
+      <Flex direction="row" justifyContent="space-between" mt="19px">
+        <Box w="619px">
           <Text
             color="black"
             fontWeight="700"
             fontSize="18 px"
             lineHeight="22 px"
             fontStyle="normal"
-            mb='10px'
+            mb="10px"
           >
             Description
           </Text>
@@ -74,7 +74,9 @@ export default function ContentDetails() {
             fontStyle="normal"
             mb="20px"
           >
-            Lorem ipsum dolor sit amet consectetur. Nulla venenatis id morbi massa mauris enim id urna nibh. Dui nisl ut ornare nulla nibh id. Consectetur mattis nunc adipiscing mauris.
+            Lorem ipsum dolor sit amet consectetur. Nulla venenatis id morbi
+            massa mauris enim id urna nibh. Dui nisl ut ornare nulla nibh id.
+            Consectetur mattis nunc adipiscing mauris.
           </Text>
           <Text
             color="black"
@@ -83,38 +85,49 @@ export default function ContentDetails() {
             lineHeight="17 px"
             fontStyle="normal"
           >
-            Ornare auctor consectetur praesent lectus dolor ac. Enim enim senectus est vel risus elementum laoreet sed. Tincidunt habitasse vitae phasellus cum vel felis est. 
+            Ornare auctor consectetur praesent lectus dolor ac. Enim enim
+            senectus est vel risus elementum laoreet sed. Tincidunt habitasse
+            vitae phasellus cum vel felis est.
           </Text>
         </Box>
-        <Flex mt='29px'  mr='-50px'>
-        <img
-          src={require("../../Image/LogoWhatsapp.png")}
-          alt=""
-          width="24px"
-          height="24px"
-        />
+        <Flex mt="29px" mr="-50px">
+          <img
+            src={require("../../Image/LogoWhatsapp.png")}
+            alt=""
+            width="24px"
+            height="24px"
+          />
         </Flex>
-        
       </Flex>
-      <Flex direction="row" my='54px' gap='49px'>
+      <Flex direction="row" my="54px" gap="49px">
         <Box>
-        <img
+          {/* <img
           src={require("../../Image/MapEntete.png")}
           alt=""
         />
         <img
           src={require("../../Image/MapDestination.png")}
           alt=""
-        />
+        /> */}
+          <iframe
+            width="880px"
+            height="297px"
+            frameborder="0"
+            scrolling="no"
+            marginheight="0"
+            marginwidth="0"
+            id="gmap_canvas"
+            src="https://maps.google.com/maps?width=1012&amp;height=643&amp;hl=en&amp;q=Manamoisoa%20Ambodirano+(Morarano)&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+          ></iframe>
         </Box>
-        <Box w='420px'>
+        <Box w="420px">
           <Text
             color="black"
             fontWeight="700"
             fontSize="18 px"
             lineHeight="22 px"
             fontStyle="normal"
-            mb='10px'
+            mb="10px"
           >
             Amazing Tour
           </Text>
@@ -126,7 +139,9 @@ export default function ContentDetails() {
             fontStyle="normal"
             mb="20px"
           >
-            Lorem ipsum dolor sit amet consectetur. Nulla venenatis id morbi massa mauris enim id urna nibh. Dui nisl ut ornare nulla nibh id. Consectetur mattis nunc adipiscing mauris.
+            Lorem ipsum dolor sit amet consectetur. Nulla venenatis id morbi
+            massa mauris enim id urna nibh. Dui nisl ut ornare nulla nibh id.
+            Consectetur mattis nunc adipiscing mauris.
           </Text>
           <Text
             color="black"
@@ -136,7 +151,9 @@ export default function ContentDetails() {
             fontStyle="normal"
             mb="20px"
           >
-            Lorem ipsum dolor sit amet consectetur. Nulla venenatis id morbi massa mauris enim id urna nibh. Dui nisl ut ornare nulla nibh id. Consectetur mattis nunc adipiscing mauris.
+            Lorem ipsum dolor sit amet consectetur. Nulla venenatis id morbi
+            massa mauris enim id urna nibh. Dui nisl ut ornare nulla nibh id.
+            Consectetur mattis nunc adipiscing mauris.
           </Text>
           <Text
             color="black"
@@ -145,10 +162,12 @@ export default function ContentDetails() {
             lineHeight="17.07 px"
             fontStyle="normal"
           >
-              Ornare auctor consectetur praesent lectus dolor ac. Enim enim senectus est vel risus elementum laoreet sed. Tincidunt habitasse vitae phasellus cum vel felis est.  
-          </Text> 
+            Ornare auctor consectetur praesent lectus dolor ac. Enim enim
+            senectus est vel risus elementum laoreet sed. Tincidunt habitasse
+            vitae phasellus cum vel felis est.
+          </Text>
         </Box>
-        </Flex>
+      </Flex>
     </Box>
   );
 }

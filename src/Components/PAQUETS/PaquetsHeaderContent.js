@@ -8,15 +8,11 @@ export default function PaquetsHeaderContent() {
     <>
       <Box position="absolute" w="100%" zIndex={0}>
         <img src={require("../../Image/imageback.png")} alt="" />
-        <Flex mt="-68 px" mr="32.39 px" alignItems="flex-end">
-          <img
-            src={require("../../Image/LogoWhatsapp.png")}
-            alt=""
-            width="24px"
-            height="24px"
-          />
-        </Flex>
       </Box>
+      <Flex  position='fixed' mr='32.39 px' bottom={10} right={0}  zIndex={10} alignItems='flex-end'  >
+              <img src={require("../../Image/LogoWhatsapp.png")} alt="" width="40px" height="40px" />
+              
+            </Flex>
       <Box mx="80 px" my="256 px" mt="166 px">
         <Text fontWeight="700" fontSize="20" lineHeight="24 px" color="white">
           Nos circuits

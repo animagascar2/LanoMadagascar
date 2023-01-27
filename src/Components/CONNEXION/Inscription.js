@@ -7,15 +7,17 @@ import {
   Input,
   Heading,
   Divider,
+  Center,
 } from "native-base";
 import { Link } from "react-router-dom";
 import { styles } from "../../styles";
 
 export default function Inscription() {
   return (
-    <Flex direction="row" ml="80px" mr="52px" gap="282px">
+   <Center>
+     <Flex direction="row" ml="80px" mr="52px" gap="250px">
       <Box my="13px">
-        <img src={require("../../Image/ConnexionSlideP1.png")} alt="" />
+        <img src={require("../../Image/ConnexionSlideP1.png")} alt="" height='900px'/>
       </Box>
       <Flex alignItems='flex-end'>
         <Box mt="32px" mb="112px">
@@ -34,7 +36,7 @@ export default function Inscription() {
         >
           Inscription
         </Heading>
-        <Flex gap="16px" w="326px" my="38px">
+        <Flex gap="30px" w="326px" my="38px">
           <Input h="48px" placeholder="Nom" />
           <Input h="48px" placeholder="Prénom" />
           <Input h="48px" placeholder="Mail" />
@@ -82,5 +84,6 @@ export default function Inscription() {
         </Text>
       </Flex>
     </Flex>
+   </Center>
   );
 }

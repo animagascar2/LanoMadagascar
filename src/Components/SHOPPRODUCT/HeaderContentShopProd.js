@@ -46,8 +46,8 @@ export default function HeaderContentShopProd() {
           </Box>
           
       </Flex>
-      <Flex  mr='32.39 px' alignItems='flex-end' >
-              <img src={require("../../Image/LogoWhatsapp.png")} alt="" width="24px" height="24px" />
+      <Flex  position='fixed' mr='32.39 px' bottom={10} right={0}  zIndex={12} alignItems='flex-end'  >
+              <img src={require("../../Image/LogoWhatsapp.png")} alt="" width="40px" height="40px" />
               
             </Flex>
       

@@ -13,9 +13,9 @@ export default function ContacterNous(props) {
             <img alt="" src={require("../../Image/IconBack.png")} />
         </Link>
       </Flex>
-      <Flex direction="row" gap="42px">
+      <Flex direction="row" gap="100px">
         <Box>
-          <img alt="" src={require("../../Image/VectorContact.png")} />
+          <img alt="" src={require("../../Image/VectorContact.png")} width="560"/>
         </Box>
         <Box w="749px">
           <Center>

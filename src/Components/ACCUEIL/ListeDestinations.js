@@ -2,11 +2,14 @@ import { Box, Heading, Center, Text, Flex, Button, Input } from "native-base";
 import React from "react";
 import { styles } from "../../styles";
 import { Link } from "react-router-dom";
+import { mapGetters } from "../../store/reex";
+
 
 export default function ListeDestinations() {
+  const ListeCircuit = mapGetters("circuit/ListeCircuit");
   return (
-    <Box mx="80.62">
-      <Flex direction="row"  gap='282 px'>
+    <Box >
+      <Flex mx="80.62" direction="row"  gap='282 px'>
         <Flex direction="row" alignItems='center'  gap='14px'>
           <Text 
             color="black"
@@ -53,7 +56,7 @@ export default function ListeDestinations() {
           </Heading>
         </Center>
       </Flex>
-      <Center my="68 px">
+      <Center mx="80.62" my="68 px">
         <Flex direction="row" flexWrap="wrap" gap="20 px">
           <Box>
             <Link to="/DetailsDestination" style={styles.textDeco}>
@@ -402,7 +405,7 @@ export default function ListeDestinations() {
         </Flex>
       </Box>
       <Flex direction="row" my="152 px" gap="53px" flexWrap="wrap" mx="94 px">
-        <Box w="619px" h="153px">
+        <Box w="619px" >
           <Text
             fontWeight="700"
             fontSize="20"
@@ -420,9 +423,9 @@ export default function ListeDestinations() {
             mb="40 px"
           >
             Les meilleures<br></br>
-            plages
+            places
           </Text>
-          <Flex gap="12px">
+          <Flex gap="12px" >
             <Text
               fontWeight="400"
               fontSize="14"
@@ -474,7 +477,7 @@ export default function ListeDestinations() {
               lineHeight="37 px"
               color="black"
             >
-              300 /
+              300 $ /
             </Text>
             <Text
               fontWeight="400"

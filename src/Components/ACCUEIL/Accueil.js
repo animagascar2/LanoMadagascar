@@ -7,6 +7,7 @@ import FooterLano from '../FooterLano';
 import FooterLanoContent from './FooterLanoContent';
 import { Link } from "react-router-dom";
 
+
 export default function Accueil(props) {
   return (
     <Box>

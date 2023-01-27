@@ -76,7 +76,7 @@ export default function Quisommesnous() {
         </Button>
       </Box>
       <Box>
-        <img src={require("../../Image/quisommenous.png")} alt="" />
+        <img src={require("../../Image/quisommenous.png")} alt="" width="190px" />
       </Box>
     </Flex>
   );

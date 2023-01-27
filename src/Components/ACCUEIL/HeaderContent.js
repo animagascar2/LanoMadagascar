@@ -6,11 +6,12 @@ export default function HeaderContent() {
     <>
       <Box position="absolute" w="100%">
         <img src={require("../../Image/imageback.png")} alt="" />
-            <Flex mt='-68 px' mr='32.39 px' alignItems='flex-end'  >
-              <img src={require("../../Image/LogoWhatsapp.png")} alt="" width="24px" height="24px" />
+            
+      </Box>
+      <Flex  position='fixed' mr='32.39 px' bottom={10} right={0}  zIndex={10} alignItems='flex-end'  >
+              <img src={require("../../Image/LogoWhatsapp.png")} alt="" width="40px" height="40px" />
               
             </Flex>
-      </Box>
       <Center mx="250 px" mt="183 px" mb="133.14 px">
         <Text fontWeight="900" fontSize="50" lineHeight="61 px" color="white">
           Recherchez vos prochaines vacances
@@ -24,34 +25,13 @@ export default function HeaderContent() {
         >
           Consultez notre meilleure promotion
         </Text>
-        <Select
-          mt="20 px"
-          mx="105 px"
-          borderRadius="full"
-          p="23"
-          bg="white"
-          w="316px"
-          placeholder="Choisissez votre destination"
-          placeholderTextColor="#1B4C74"
-          placeholderFontWeight="400"
-          placeholderFontSize="16 px"
-          fontColor="#1B4C74"
-          fontWeight="400"
-          fontSize="16px"
-          _selectedItem={{
-            bg: "teal.600",
-            endIcon: <CheckIcon h="8" />,
-          }}
-        >
-          <Select.Item label="UX Research" value="ux" />
-          <Select.Item label="Web Development" value="web" />
-        </Select>
         <Flex
           direction="row"
           mt="109 px"
           alignItems="center"
           justifyContent="center"
           gap="50px"
+          mb='100px'
         >
           <img src={require("../../Image/ImageSeDetendre.png")} alt="" />
           <img src={require("../../Image/ImageCulturel.png")} alt="" />
