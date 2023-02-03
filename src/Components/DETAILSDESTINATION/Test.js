@@ -5,9 +5,8 @@ import { styles } from "../../styles";
 
 export default function ContentDetails() {
   return (
-    <Flex p='8'>
-      <Flex direction={{base:'column-reverse',lg:"row"}} justifyContent='space-between' flexWrap='wrap'>
-      <Box>
+    <Flex>
+      <Box mb="4" >
         <Heading
           color="#1B4C74"
           fontWeight="900"
@@ -27,48 +26,22 @@ export default function ContentDetails() {
           600 $
         </Heading>
       </Box>
-      <Flex direction="row"  alignItems='center' justifyContent="center"  gap='14px'>
-          <Text 
-            color="black"
-            fontWeight="700"
-            fontSize="18"
-            lineHeight="22px"
-            fontStyle="normal">
-            Conversion
-          </Text>
-          <Input
-            w="114px" h="29px" shadow={3}
-            placeholderTextColor="#1B4C74"
-            fontSize="14 px"
-            fontWeight='700'
-            lineHeight='17px'
-            InputRightElement={
-              <Box mr='2'>
-                <img src={require("../../Image/SelectIconBlack.png")} alt="" />
-              </Box>
-              
-            }
-            placeholder="USD $"
-          />
-        </Flex>
-      </Flex>
-      <Flex my="2" direction='row' flexWrap='wrap' justifyContent='space-between' gap='20px'>
-        <Box w= {{base:'100%',md:'48%',lg:'48%'}} >
+      <Flex direction="row" flexWrap='wrap' gap="30px" >
+        <Box w={{base:"100%",md:"100%",lg:"50%"}}>
           <img src={require("../../Image/MTPhotos1.png")} alt="" />
         </Box>
-        <Flex w= {{base:'100%',md:'48%',lg:'48%'}} direction="column" gap='20px' justifyContent="space-between">
-          <Flex direction="row" justifyContent={{base:'center',lg:"space-between"}} gap='20px' flexWrap='wrap' >
+        <Box>
+          <Flex direction="row" flexWrap='wrap' gap="28px" mb="30px" w="50%">
             <img src={require("../../Image/MTPhotos2.png")} alt="" />
             <img src={require("../../Image/MTPhotos3.png")} alt="" />
           </Flex>
-          <Flex direction="row" justifyContent={{base:'center',lg:"space-between"}}  gap='20px' flexWrap='wrap' >
+          <Flex direction="row" flexWrap='wrap'  gap="28px" w="50%">
             <img src={require("../../Image/MTPhotos4.png")} alt="" />
             <img src={require("../../Image/MTPhotos5.png")} alt="" />
           </Flex>
-        </Flex>
+        </Box>
       </Flex>
-      <Box w= {{base:'100%',md:'50%',lg:'100%'}}>
-      <Flex direction="row"  my='4' mt={{base:'0',md:'-650px',lg:'0'}}>
+      <Flex direction="row" mt="23px">
         <Rate disabled allowHalf="true" value={4.5} />
         <Text
           color="black"
@@ -81,8 +54,9 @@ export default function ContentDetails() {
           4,5 Avis
         </Text>
       </Flex>
-      <Flex direction="row" justifyContent="space-between" >
-        <Box w={{base:'100%',md:'100%',lg:'50%'}}>
+
+      <Flex direction="row" justifyContent="space-between" mt="19px">
+        <Box w="50%">
           <Text
             color="black"
             fontWeight="700"
@@ -133,15 +107,15 @@ export default function ContentDetails() {
         />
       </Flex>
       </Flex>
-      <Flex direction="row" my='10' flexWrap='wrap' justifyContent='space-between' gap='50px' style={styles.navbarStyle}>
-        <Box w= {{base:'100%',md:'100%',lg:'48%'}}>
+      <Flex direction="row" my="54px" gap="49px" style={styles.navbarStyle}>
+        <Box>
           <img
           src={require("../../Image/MapEntete.png")}
           alt=""
         />
           <iframe
-            width="100%"
-            height="auto"
+            width="880px"
+            height="297px"
             frameborder="0"
             scrolling="no"
             marginheight="0"
@@ -150,7 +124,7 @@ export default function ContentDetails() {
             src="https://maps.google.com/maps?width=1012&amp;height=643&amp;hl=en&amp;q=Manamoisoa%20Ambodirano+(Morarano)&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
           ></iframe>
         </Box>
-        <Box w= {{base:'100%',md:'100%',lg:'48%'}}>
+        <Box w="420px">
           <Text
             color="black"
             fontWeight="700"
@@ -198,7 +172,6 @@ export default function ContentDetails() {
           </Text>
         </Box>
       </Flex>
-      </Box>
     </Flex>
   );
 }

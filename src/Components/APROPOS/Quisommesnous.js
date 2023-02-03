@@ -5,11 +5,11 @@ import { styles } from "../../styles";
 
 export default function Quisommesnous() {
   return (
-    <Flex mx="123 px" mt="76 px" direction="row">
-      <Box mr="270 px" mt="136 px" w="750px">
+    <Flex mx="10%"  direction="row" flexWrap='wrap' justifyContent='space-between' alignItems='center' gap='20px'>
+      <Box maxWidth={{base:"100%",md:'80%',lg:'60%'}}>
         <Heading
           fontWeight="800"
-          fontSize="50"
+          fontSize={{base:"30",md:'50',lg:'50'}}
           lineHeight="61 px"
           color="#1B4C74"
         >
@@ -75,7 +75,7 @@ export default function Quisommesnous() {
           </Link>
         </Button>
       </Box>
-      <Box>
+      <Box display={{base:'none',md:'none',lg:'flex'}}>
         <img src={require("../../Image/quisommenous.png")} alt="" width="190px" />
       </Box>
     </Flex>

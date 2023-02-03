@@ -6,21 +6,29 @@ export default function FooterShopContent() {
   return (
     <Box background=' #D3D3D3'>
         <Box>
-          <Box position='absolute'  ml="748 px" mt='168 px' mx="80px">
+          
+          <Box position="absolute">
+            <img
+              src={require("../../Image/foot1.png")}
+              alt=""
+              width='100%'
+            />
+          </Box>
+          <img src={require("../../Image/FootBGShop.png")} alt="" width='100%'/>
+        </Box>
+        <Flex position='absolute'  mt={{base:"5",md:"16",lg:"160px"}} ml={{base:"20%",md:"30%",lg:"50%"}}>
           <Input
-            width="694.49px"
-            height="86px"
+            width={{base:"xs",md:"lg",lg:"2xl"}}
+            height={{base:"auto",md:"auto",lg:"auto"}}
             bg='white'
             rounded='full'
-            p='33.46px'
             InputRightElement={
                 <Button
                 rounded='full'
                 style={styles.btnReservez}
-                pt="16 px"
-                pb="16 px"
-                px="32 px"
-                mr='33.46px'
+                p="4"
+                m={{base:"1",md:"4",lg:"4"}}
+
             >
                 <Text color="white" style={styles.btnReservezText}>
                 Subscribe
@@ -29,15 +37,7 @@ export default function FooterShopContent() {
             }
             placeholder="Tapez votre adresse e-mail"
           />
-        </Box>
-        <Box position="absolute">
-          <img
-            src={require("../../Image/foot1.png")}
-            alt=""
-          />
-        </Box>
-        <img src={require("../../Image/FootBGShop.png")} alt="" />
-        </Box>
+          </Flex>
     </Box>
   )
 }

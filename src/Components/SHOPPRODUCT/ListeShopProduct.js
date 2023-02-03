@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 
 export default function ListeShopProduct() {
   return (
-    <Box mx="216 px">
-      <Flex direction="row" alignItems='center' mt='95px' mb="46px" gap='14px'>
+    <Box p="20">
+      <Flex direction="row" alignItems='center' gap='14px'>
           <Text 
             color="black"
             fontWeight="700"
@@ -41,7 +41,7 @@ export default function ListeShopProduct() {
         Nos produits
       </Heading>
 
-      <Flex direction="row" flexWrap="wrap" gap="40 px" my='90 px'>
+      <Flex direction="row" justifyContent='space-around' w='100%' flexWrap="wrap" gap={{base:"10 px",md:"10 px",lg:"40 px"}} my='10'>
         <Box rounded="lg" bg="white" px="20 px"  borderWidth="0.5 px" style={styles.ShadowStyleCard} borderColor='#C6C6C6'>
           <Box px="42 px">
             <img alt="" src={require("../../Image/HE1.png")} />

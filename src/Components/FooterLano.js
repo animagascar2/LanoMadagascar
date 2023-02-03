@@ -5,14 +5,16 @@ import { styles } from "../styles";
 export default function FooterLano(props) {
  
   return (
-    <Box zIndex={0}>
+    <Box >
       
       <Box bg="black" pl="32 px">
         <Flex
-          direction="row"
+          direction='row'
           justifyContent={"space-between"}
           pt="43 px"
           pr="170 px"
+          gap='20px'
+          flexWrap={{base:'wrap'}}
         >
           <Box mt="-18 px">
             <img
@@ -46,7 +48,7 @@ export default function FooterLano(props) {
               © 2021 All Rights Reserved
             </Text>
           </Box>
-          <Box>
+          <Box >
             <Heading style={styles.titlefootstyle}>Follow us</Heading>
             <Flex mt="14 px" mb="32 px" direction="row" gap="16 px">
               <img
@@ -87,7 +89,7 @@ export default function FooterLano(props) {
               +1 800 854-36-80
             </Text>
           </Box>
-          <Box gap="16px">
+          <Box gap="16px" ml={{base:'20px'}} >
             <Heading style={styles.titlefootstyle} mb="16 px">
               Product
             </Heading>
@@ -177,8 +179,8 @@ export default function FooterLano(props) {
               Website Builder
             </Text>
           </Box>
-          <Box gap="16px">
-            <Heading style={styles.titlefootstyle} mb="16 px">
+          <Box gap="16px" >
+            <Heading style={styles.titlefootstyle} >
               Company
             </Heading>
             <Text
@@ -233,7 +235,7 @@ export default function FooterLano(props) {
             </Text>
           </Box>
         </Flex>
-        <Flex mt="25 px" mb="76 px" direction="row" gap="40 px">
+        <Flex flexWrap='wrap' mt="25 px" mb="76 px" direction="row" gap="40 px">
           <Text
             color="white"
             style={styles.fn}

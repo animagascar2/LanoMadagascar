@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box} from 'native-base'
-import HeadERLano from '../HeadERLano';
+import HeadERLano from '../NAVBAR/HeadERLano';
 import FooterLano from '../FooterLano';
 import FooterShopContent from './FooterShopContent';
 import ShopHeaderContent from './ShopHeaderContent';

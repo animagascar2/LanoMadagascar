@@ -1,17 +1,20 @@
 import React from "react";
-import { Box, Flex, Text, Divider, Heading, Button, Input, HStack, Checkbox } from "native-base";
+import {
+  Box,
+  Flex,
+  Text,
+  Divider,
+  Heading,
+  Button,
+  Input,
+  HStack,
+  Checkbox,
+} from "native-base";
 import { styles } from "../../styles";
 
 export default function FormPayement() {
   return (
-    <Box
-      style={styles.ShadowStylePayement}
-      mx="95 px"
-      pt="117 px"
-      mb="54px"
-      pl="114 px"
-      pr="191px"
-    >
+    <Box style={styles.ShadowStylePayement} px={{base:'4',md:'20',lg:"20"}} py={{base:'2',md:'5',lg:"10"}} m={{base:'2',md:'10',lg:"20"}}>
       <Box>
         <Box>
           <Heading
@@ -25,8 +28,13 @@ export default function FormPayement() {
           </Heading>
           <Divider w="99px" backgroundColor="#159F15" />
         </Box>
-        <Flex my="46px" direction="row" gap="82px">
-          <Box w="262px">
+        <Flex
+          my="46px"
+          direction="row"
+          flexWrap="wrap"
+          justifyContent="space-between"
+        >
+          <Box>
             <Text
               color="#3D3E48"
               fontWeight="700"
@@ -36,9 +44,9 @@ export default function FormPayement() {
             >
               Nom
             </Text>
-            <Input h="58px" shadow={3} />
+            <Input h="58px" w="xs" shadow={3} />
           </Box>
-          <Box w="262px">
+          <Box>
             <Text
               color="#3D3E48"
               fontWeight="700"
@@ -48,9 +56,9 @@ export default function FormPayement() {
             >
               Prénom
             </Text>
-            <Input h="58px" shadow={3} />
+            <Input h="58px" w="xs" shadow={3} />
           </Box>
-          <Box w="139px">
+          <Box>
             <Text
               color="#3D3E48"
               fontWeight="700"
@@ -73,7 +81,7 @@ export default function FormPayement() {
               }
             />
           </Box>
-          <Box w="139px" ml="-66px">
+          <Box>
             <Text
               color="#3D3E48"
               fontWeight="700"
@@ -97,8 +105,8 @@ export default function FormPayement() {
             />
           </Box>
         </Flex>
-        <Flex mb="46px" direction="row" gap="82px">
-          <Box w="262px">
+        <Flex direction="row" flexWrap="wrap" justifyContent="space-between">
+          <Box>
             <Text
               color="#3D3E48"
               fontWeight="700"
@@ -115,6 +123,7 @@ export default function FormPayement() {
               fontWeight="700"
               textAlign="center"
               h="58px"
+              w="xs"
               shadow={3}
               InputRightElement={
                 <Box mr="21px">
@@ -123,7 +132,7 @@ export default function FormPayement() {
               }
             />
           </Box>
-          <Box w="262px">
+          <Box>
             <Text
               color="#3D3E48"
               fontWeight="700"
@@ -140,6 +149,7 @@ export default function FormPayement() {
               fontWeight="700"
               textAlign="center"
               h="58px"
+              w="xs"
               shadow={3}
               InputRightElement={
                 <Box mr="21px">
@@ -150,7 +160,7 @@ export default function FormPayement() {
           </Box>
           <Flex
             direction="row"
-            w="258px"
+            w={{base:'xs', md:'sm',lg:"md"}}
             justifyContent="center"
             alignItems="center"
             h="58px"
@@ -168,7 +178,7 @@ export default function FormPayement() {
             </Text>
             <Input
               variant="underlined"
-              w="81.5px"
+              w={{base:'200px',lg:"xs"}}
               InputRightElement={
                 <Box mr="2">
                   <Text
@@ -186,7 +196,7 @@ export default function FormPayement() {
           </Flex>
         </Flex>
       </Box>
-      <Box>
+      <Box my="10">
         <Box>
           <Heading
             color="black"
@@ -199,8 +209,14 @@ export default function FormPayement() {
           </Heading>
           <Divider w="99px" backgroundColor="#159F15" />
         </Box>
-        <Flex my="46px" direction="row" gap="82px">
-          <Box w="383px">
+        <Flex
+          my="46px"
+          gap="5"
+          direction="row"
+          flexWrap="wrap"
+          justifyContent="space-between"
+        >
+          <Box>
             <Text
               color="#3D3E48"
               fontWeight="700"
@@ -223,6 +239,7 @@ export default function FormPayement() {
             <Input
               textAlign="right"
               h="58px"
+              w={{base:'xs',md:'md',lg:'md'}}
               shadow={3}
               placeholder="----/----/----/----"
               fontSize="20px"
@@ -288,8 +305,12 @@ export default function FormPayement() {
             </Flex>
           </Box>
         </Flex>
-        <Flex mb="46px" direction="row" gap="201px">
-          <Box w="262px">
+        <Flex
+          
+          direction={{ base: "column", md: "column", lg: "row" }}
+          flexWrap="wrap"
+        >
+          <Box>
             <Text
               color="#3D3E48"
               fontWeight="700"
@@ -311,6 +332,7 @@ export default function FormPayement() {
             </Text>
             <Input
               h="58px"
+              w='xs'
               shadow={3}
               InputRightElement={
                 <Box mr="2">
@@ -319,6 +341,25 @@ export default function FormPayement() {
               }
             />
           </Box>
+          <Flex direction="row" mt="46px" mx='10'>
+            <Flex alignItems="center" gap="7px">
+              <img src={require("../../Image/logoMastercard.png")} alt="" />
+              <Checkbox
+                value="test"
+                accessibilityLabel="This is a dummy checkbox"
+                borderColor="black.100"
+                bg="white "
+                defaultIsChecked
+              />
+            </Flex>
+            <Flex alignItems="center" gap="10 px">
+              <img src={require("../../Image/logovisa.png")} alt="" />
+              <Checkbox
+                value="test"
+                accessibilityLabel="This is a dummy checkbox"
+              />
+            </Flex>
+          </Flex>
           <Box mt="60px">
             <Button bg="#025EFF" w="193px">
               <Text
@@ -332,16 +373,6 @@ export default function FormPayement() {
               </Text>
             </Button>
           </Box>
-        </Flex>
-        <Flex direction="row" gap='21px' ml='290px' mt='-60px'mb='57.5px' >
-          <Flex alignItems='center' gap="7px" >
-              <img src={require("../../Image/logoMastercard.png")} alt="" />
-              <Checkbox value="test" accessibilityLabel="This is a dummy checkbox" borderColor='black.100' bg='white ' defaultIsChecked />
-          </Flex>
-          <Flex alignItems='center' gap="10 px">
-              <img src={require("../../Image/logovisa.png")} alt="" />
-              <Checkbox value="test" accessibilityLabel="This is a dummy checkbox"  />
-          </Flex>
         </Flex>
       </Box>
     </Box>

@@ -1,11 +1,15 @@
 
-
+const w= window.innerWidth
 const Header = { padding: "10px 20px", textAlign: "center", color: "white" };
 
 const navStyle = {
   backgroundColor: "black",
   
+  
 };
+const navbarStyle = {
+  zIndex:10
+}
 
 const logoStyle = {
   marginLeft: "57.52",
@@ -33,7 +37,8 @@ const titlefootstyle = {
   color:'white'
 };
 const textDeco = {
-  textDecoration :'none'
+  textDecoration :'none',
+  color:'white'
 }
 
 const btnReservez = {
@@ -68,4 +73,5 @@ export const styles = {
   ShadowStyle:ShadowStyle,
   ShadowStyleCard:ShadowStyleCard,
   ShadowStylePayement:ShadowStylePayement,
+  navbarStyle:navbarStyle,
 };

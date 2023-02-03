@@ -1,33 +1,34 @@
 import React from "react";
-import { Box, Center, Flex, Heading, Text,Input, Button } from "native-base";
-import HeadERLano from "../HeadERLano";
+import { Box, Center, Flex, Heading, Text,Input, Button,Hidden } from "native-base";
+import HeadERLano from "../NAVBAR/HeadERLano";
 import { styles } from "../../styles";
 import { Link } from "react-router-dom";
 
 export default function ContacterNous(props) {
   return (
-    <Box>
+    <Box >
       <HeadERLano active={props.active} />
-      <Flex direction="row" my="19px" ml="80px">
+      <Flex direction="row" display={{base:'none',lg:'flex'}} my="10px" ml="80px">
         <Link to="/Apropos" style={styles.textDeco}>
             <img alt="" src={require("../../Image/IconBack.png")} />
         </Link>
       </Flex>
-      <Flex direction="row" gap="100px">
-        <Box>
-          <img alt="" src={require("../../Image/VectorContact.png")} width="560"/>
+      <Flex direction="row">
+        <Box  display={{base:'none',md:'none',lg:'flex'}}>
+          <img alt="" src={require("../../Image/VectorContact.png")} width="80%"/>
         </Box>
-        <Box w="749px">
-          <Center>
+        <Box width={{base:'100%',md:'100%',lg:'50%'}} p={{base:'4',md:'5%',lg:'4'}}>
             <Heading
               fontWeight="800"
-              fontSize="50"
+              fontSize={{base:'35',md:'50',lg:'50'}}
               lineHeight="61 px"
               color="#1B4C74"
+              textAlign='center'
+              my='1'
             >
               Demandez-nous!
             </Heading>
-            <Flex direction="row" gap="48px" mt="19 px">
+            <Flex direction={{base:'column',md:"row",lg:"row"}} gap="20%" >
               <Center>
                 <img
                   alt=""
@@ -83,14 +84,13 @@ export default function ContacterNous(props) {
                 </Text>
               </Center>
             </Flex>
-            <Flex w="100%" mt="85 px" gap='56px' mb='44px'>
+            <Flex w="100%" gap='56px' direction="column" my='10'>
                 <Input variant="underlined" placeholder="Nom*"  />
                 <Input variant="underlined" placeholder="Email*"  />
                 <Input variant="underlined" placeholder="Contact*"  />
                 <Input variant="underlined" placeholder="Message"  />
             </Flex>
-            
-          </Center>
+          
           <Button
           w="238px"
           variant="outline"
@@ -114,7 +114,7 @@ export default function ContacterNous(props) {
         </Button>
         </Box>
       </Flex>
-      <Flex direction="row" gap='26px' ml="224 px" mb="22px" mt='-55px'>
+      <Flex direction="row" gap='26px' ml={{base:'6',md:'30%',lg:"224 px"}} mb={{base:'4',lg:"22 px"}} mt={{lg:"-55 px"}} >
         <img alt="" src={require("../../Image/IconYoutubeBlue.png")} />
         <img alt="" src={require("../../Image/IconTwiterBlue.png")} />
         <img alt="" src={require("../../Image/IconLinkdinBlue.png")} />

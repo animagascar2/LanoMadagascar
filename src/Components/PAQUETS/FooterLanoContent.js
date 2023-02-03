@@ -8,16 +8,16 @@ export default function FooterLanoContent() {
     <Box>
       
       <Box>
-        <Box position="absolute" my="167 px" mx="80px" bg='red'>
+        <Box position="absolute" my={{base:"35px",md:"90px",lg:"167px"}} mx={{base:"4px",md:"80px",lg:"80px"}}>
           <Input
-            width="729px"
-            height="75px"
+            width={{base:"350px",md:"729px",lg:"729px"}}
+            height={{base:"40px",md:"75px",lg:"80px"}}
             bg='white'
             borderRightColor='#FFC525'
             InputRightElement={
               <Button 
-              width= '134px'
-              height= '74px'
+              width= {{base:"100px",md:"134px",lg:"134px"}}
+              height= {{base:'40px',md:'74px',lg:'79px'}}
               py='29 px'
               roundedLeft={0} 
               border='none'
@@ -26,14 +26,6 @@ export default function FooterLanoContent() {
               </Button>
             }
             placeholder="VOTRE EMAIL"
-          />
-        </Box>
-        <Box position="absolute" ml="1233px" mt="116px">
-          <img
-            src={require("../../Image/ImagePersonFooter.png")}
-            alt=""
-            width="279px"
-            height="293px"
           />
         </Box>
         <img src={require("../../Image/footerBackground.png")} alt="" />

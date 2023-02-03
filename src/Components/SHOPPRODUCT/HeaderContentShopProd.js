@@ -6,12 +6,12 @@ import { Box, Flex, Text,
 export default function HeaderContentShopProd() {
   return (
     <Box>
-      <Flex direction='row' mx="92 px" alignItems="center">
-        <Box  w="544px">
+      <Flex direction={{base:'column-reverse',md:'row',lg:'row'}} justifyContent='center' px={{base:'4',md:'4',lg:'20'}}py={{base:'4',md:'4',lg:'0'}} alignItems="center">
+        <Box  w= {{base:'100%',md:'50%',lg:'50%'}} >
           <Text
             color="#1B4C74"
             fontWeight="800"
-            fontSize="60"
+            fontSize={{base:"40",md:"40",lg:"60"}}
             lineHeight="73px"
             fontStyle="normal"
           >
@@ -19,7 +19,6 @@ export default function HeaderContentShopProd() {
           </Text>
           <Text
             color="#000000"
-            mt="7"
             fontWeight="700"
             fontSize="30"
             lineHeight="38px"
@@ -41,7 +40,7 @@ export default function HeaderContentShopProd() {
             l’odeur et la saveur naturelles de leur source.
           </Text>
         </Box>
-          <Box>
+          <Box w= {{base:'50%',md:'50%',lg:'50%'}}>
              <img src={require("../../Image/ImageBackShopProd.png")} alt="" />
           </Box>
           

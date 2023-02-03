@@ -9,8 +9,13 @@ export default function ListeDestinations() {
   const ListeCircuit = mapGetters("circuit/ListeCircuit");
   return (
     <Box >
-      <Flex mx="80.62" direction="row"  gap='282 px'>
-        <Flex direction="row" alignItems='center'  gap='14px'>
+      <Flex  direction={{
+        base:'column',
+        lg:'row'
+      }}  gap={{
+        lg:'282 px'
+      }}>
+        <Flex direction="row" ml='12px'  alignItems='center' justifyContent="center"  gap='14px'>
           <Text 
             color="black"
             fontWeight="700"
@@ -57,7 +62,7 @@ export default function ListeDestinations() {
         </Center>
       </Flex>
       <Center mx="80.62" my="68 px">
-        <Flex direction="row" flexWrap="wrap" gap="20 px">
+        <Flex direction="row" flexWrap="wrap" gap="20 px" alignContent='center' justifyContent='center'>
           <Box>
             <Link to="/DetailsDestination" style={styles.textDeco}>
               <img
@@ -375,22 +380,29 @@ export default function ListeDestinations() {
         </Flex>
       </Center>
       <Box>
-        <img src={require("../../Image/FondProposition.png")} alt="" />
         <Flex
-          direction="row"
-          position="absolute"
-          mx="56 px"
-          gap="575px"
-          mt="104px"
+          direction={{base:"column",md:"row", lg:"row"}}
+          justifyContent= {{base:'center',md:'space-between', lg:'space-between'}}
+          alignItems='center'
+          style={{  
+            backgroundImage: "url(" + require("../../Image/FondProposition.png") + ")",
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            width:'100%',
+            height:'auto'
+          }}
+          gap='20px'
+          p='10%'
         >
-          <Text fontWeight="700" fontSize="40" lineHeight="49 px" color="white">
-            Nos <br></br>
+          <Text fontWeight="700" fontSize={{base:'20',md:'30',lg:'40'}} lineHeight={{base:'30',md:'49',lg:'49'}}  color="white">
+            Nos 
             propositions
           </Text>
           <Button
             bg="white"
-            width="356px"
-            height="70px"
+            width={{base:"200px",md:"250px", lg:"356px"}}
+            height={{base:"40px",md:"70px", lg:"70px"}}
             rounded="full"
             _text={{
               color: "#1B4C74",
@@ -400,12 +412,14 @@ export default function ListeDestinations() {
               lineHeight: "22px",
             }}
           >
+            <Link to="/Paquets" style={styles.textDeco}>
             Voir tous les circuits
+            </Link>
           </Button>
         </Flex>
       </Box>
-      <Flex direction="row" my="152 px" gap="53px" flexWrap="wrap" mx="94 px">
-        <Box w="619px" >
+      <Flex direction={{base:"column",md:"column",lg:"row"}}  p={{base:"40px",md:"60px",lg:"94px"}} w='100%' alignItems='center' gap="53px" >
+        <Flex direction="column" w={{base:"100%",md:"100%",lg:"50%"}} >
           <Text
             fontWeight="700"
             fontSize="20"
@@ -422,10 +436,10 @@ export default function ListeDestinations() {
             color="black"
             mb="40 px"
           >
-            Les meilleures<br></br>
+            Les meilleures
             places
           </Text>
-          <Flex gap="12px" >
+          <Flex  >
             <Text
               fontWeight="400"
               fontSize="14"
@@ -436,26 +450,12 @@ export default function ListeDestinations() {
               Lorem ipsum dolor sit amet consectetur. Nulla venenatis id
               morbimassa mauris enim id urna nibh. Dui nisl ut ornare nulla nibh
               id.
-            </Text>
-            <Text
-              fontWeight="400"
-              fontSize="14"
-              lineHeight="17 px"
-              color="black"
-              textAlign="justify"
-            >
+              <br></br>
               Consectetur mattis nunc adipiscing mauris. Ornare auctor
               consectetur praesent lectus dolor ac. Enim enim senectus est vel
               risus elementumlaoreet sed. Tincidunt habitasse vitae phasellus
               cum vel felis est.
-            </Text>
-            <Text
-              fontWeight="400"
-              fontSize="14"
-              lineHeight="17 px"
-              color="black"
-              textAlign="justify"
-            >
+              <br></br>
               Suspendisse blandit sapien lacus vitae mauris sed nisi augue
               malesuada. Quis velit luctus tincidunt scelerisque eu et euismod.
               Ac tincidunt enim facilisi at risus eu tristique lectus.
@@ -502,15 +502,14 @@ export default function ListeDestinations() {
               Réservez maintenant
             </Text>
           </Button>
-        </Box>
-        <Box>
+        </Flex  >
+        <Flex w={{base:"100%",md:"100%",lg:"50%"}}>
           <img
             src={require("../../Image/majungatour1.png")}
             alt=""
-            width="653px"
-            height="445px"
-          />
-        </Box>
+            width='100%'
+           />
+        </Flex>
       </Flex>
     </Box>
   );

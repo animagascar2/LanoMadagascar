@@ -6,9 +6,7 @@ import { Link } from "react-router-dom";
 export default function ShopHeaderContent() {
   return (
     <>
-      <Box position="absolute" w="100%" zIndex={0}>
-        <img src={require("../../Image/backgroundHeaderShop.png")} alt="" />
-      </Box>
+      
       <Flex
         position="fixed"
         mr="32.39 px"
@@ -16,7 +14,7 @@ export default function ShopHeaderContent() {
         right={0}
         zIndex={10}
         alignItems="flex-end"
-      >
+      > 
         <img
           src={require("../../Image/LogoWhatsapp.png")}
           alt=""
@@ -25,7 +23,15 @@ export default function ShopHeaderContent() {
         />
       </Flex>
 
-      <Box mt="192 px" ml="80 px" mb="330" w="544px">
+      <Flex  p='10%' pt={{base:"25%" ,lg:'20%'}}
+        style={{  
+          backgroundImage: "url(" + require("../../Image/backgroundHeaderShop.png") + ")",
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          width:'100%',
+          height:'auto'
+        }}>
         <Text
           color="#1B4C74"
           style={styles.fn}
@@ -37,7 +43,7 @@ export default function ShopHeaderContent() {
           Huile essentiel
         </Text>
         <Text
-          color="#000000"
+          color={{base:"#FFFFFF",lg:"#000000"}}
           mt="7"
           style={styles.fn}
           fontWeight="700"
@@ -56,6 +62,7 @@ export default function ShopHeaderContent() {
           color="black"
           textAlign="justify"
           my="20 px"
+          maxWidth='450px'
         >
           Les huiles essentielles, obtenues par pressage mécanique ou
           distillation, sont des extraits de plantes concentrés qui conservent
@@ -86,7 +93,7 @@ export default function ShopHeaderContent() {
             </Flex>
           </Link>
         </Button>
-      </Box>
+      </Flex>
     </>
   );
 }

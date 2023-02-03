@@ -1,22 +1,23 @@
 import React from "react";
 import { Box, Flex, Heading, Text, Button } from "native-base";
 import { styles } from "../../styles";
-import HeadERLano from "../HeadERLano";
+import HeadERLano from "../NAVBAR/HeadERLano";
 
 export default function DetailsProduct(props) {
   return (
     <Box>
       <HeadERLano active={props.active} />
-      <Flex direction="row" mx="89 px" alignItems="center" gap="50px">
-        <Box>
+      <Flex direction="row" alignItems="center" flexWrap='wrap' px="4%" justifyContent='space-around'>
+        <Box w= {{base:'100%',md:'50%',lg:'50%'}}>
           <img alt="" src={require("../../Image/DetailsProduct.png")} />
         </Box>
-        <Flex w="625px" mt="102 px">
+        <Flex w= {{base:'100%',md:'50%',lg:'50%'}}>
           <Heading
             fontWeight="700"
-            fontSize="48"
+            fontSize={{base:'46',md:'48',lg:'48'}}
             lineHeight="59 px"
             color="#1B4C74"
+            textAlign={{base:'center'}}
           >
             Huile essentiel citrons
           </Heading>
@@ -81,6 +82,7 @@ export default function DetailsProduct(props) {
           <Button
             size="sm"
             w="238px"
+            mb='20'
             variant="outline"
             bg="#1B4C74"
             borderRadius="4 px"
@@ -100,12 +102,19 @@ export default function DetailsProduct(props) {
           </Button>
         </Flex>
       </Flex>
-      <Flex mr="32.39 px" alignItems="flex-end" mb="112 px">
+      <Flex
+        position="fixed"
+        mr="32.39 px"
+        bottom={10}
+        right={0}
+        zIndex={10}
+        alignItems="flex-end"
+      >
         <img
           src={require("../../Image/LogoWhatsapp.png")}
           alt=""
-          width="24px"
-          height="24px"
+          width="40px"
+          height="40px"
         />
       </Flex>
     </Box>

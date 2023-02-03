@@ -1,24 +1,24 @@
-import React from "react";
+import React from 'react'
 import { Box, Flex, Text, Button, Center } from "native-base";
-import { styles } from "../styles";
 import { Link } from "react-router-dom";
+import { styles } from "../../styles";
 
-export default function HeadERLano(props) {
+export default function navbarDesktop(props) {
   return (
-    <Box zIndex={10}>
-      <Box
+    <Box
         zIndex={1}
         bg={props.backG ? props.backG : "black"}
         py="21.5 px"
         px="81.03 px"
       >
-        <Flex direction="row" alignItems="center">
+      <Flex direction="row" justifyContent='space-between' >
           <Flex direction="row">
             <Box mr="82 px">
-              <img src={require("../Image/logo.png")} alt="" />
+              <img src={require("../../Image/logo.png")} alt="" />
             </Box>
-
-            <Flex direction="row" alignItems="center" gap="75px">
+            
+          </Flex>
+          <Flex direction="row" alignItems="center" gap="75px">
               {props.active === "Accueil" ? (
                 <Center>
                   <Text
@@ -34,7 +34,7 @@ export default function HeadERLano(props) {
                     Acceuil
                   </Text>
                   <img
-                    src={require("../Image/menuActive.png")}
+                    src={require("../../Image/menuActive.png")}
                     alt=""
                     width="8px"
                     height="8px"
@@ -64,7 +64,7 @@ export default function HeadERLano(props) {
                     Paquets
                   </Text>
                   <img
-                    src={require("../Image/menuActive.png")}
+                    src={require("../../Image/menuActive.png")}
                     alt=""
                     width="8px"
                     height="8px"
@@ -95,7 +95,7 @@ export default function HeadERLano(props) {
                       Shop
                     </Text>
                     <img
-                      src={require("../Image/menuActive.png")}
+                      src={require("../../Image/menuActive.png")}
                       alt=""
                       width="8px"
                       height="8px"
@@ -126,7 +126,7 @@ export default function HeadERLano(props) {
                     A propos
                   </Text>
                   <img
-                    src={require("../Image/menuActive.png")}
+                    src={require("../../Image/menuActive.png")}
                     alt=""
                     width="8px"
                     height="8px"
@@ -142,8 +142,7 @@ export default function HeadERLano(props) {
                 </Link>
               )}
             </Flex>
-          </Flex>
-          <Flex ml="225 px" direction="row" alignItems="center" gap="12 px">
+          <Flex  direction="row" alignItems="center" gap="12 px">
             <Button
               w="152px"
               h="42px"
@@ -176,21 +175,20 @@ export default function HeadERLano(props) {
             </Button>
             <Flex ml="20 px" direction="row" gap="10 px" alignItems="center">
               <Box>
-                <img src={require("../Image/Flagchina.png")} alt="" />
+                <img src={require("../../Image/Flagchina.png")} alt="" />
               </Box>
               <Box>
-                <img src={require("../Image/FlagAmerica.png")} alt="" />
+                <img src={require("../../Image/FlagAmerica.png")} alt="" />
               </Box>
               <Box>
-                <img src={require("../Image/FlagFrench.png")} alt="" />
+                <img src={require("../../Image/FlagFrench.png")} alt="" />
               </Box>
               <Box>
-                <img src={require("../Image/selectIcon.png")} alt="" />
+                <img src={require("../../Image/selectIcon.png")} alt="" />
               </Box>
             </Flex>
           </Flex>
         </Flex>
       </Box>
-    </Box>
-  );
+  )
 }

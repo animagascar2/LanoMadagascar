@@ -1,46 +1,52 @@
 import React from "react";
 import { useState } from "react";
-import { Box, Slider, Flex, Text, Input } from "native-base";
+import { Box, Slider, Flex, Text, Input,Center } from "native-base";
 
 export default function PaquetsHeaderContent() {
   const [onChangeValue, setOnChangeValue] = React.useState(500);
   return (
     <>
-      <Box position="absolute" w="100%" zIndex={0}>
-        <img src={require("../../Image/imageback.png")} alt="" />
-      </Box>
       <Flex  position='fixed' mr='32.39 px' bottom={10} right={0}  zIndex={10} alignItems='flex-end'  >
               <img src={require("../../Image/LogoWhatsapp.png")} alt="" width="40px" height="40px" />
               
             </Flex>
-      <Box mx="80 px" my="256 px" mt="166 px">
+      <Box  p={{base:"4%" ,lg:'10%'}} pt={{base:"25%" ,lg:'20%'}}
+        style={{  
+          backgroundImage: "url(" + require("../../Image/imageback.png") + ")",
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          width:'100%',
+          height:'auto'
+        }} >
         <Text fontWeight="700" fontSize="20" lineHeight="24 px" color="white">
           Nos circuits
         </Text>
         <Text
           fontWeight="700"
-          fontSize="30"
-          mt="10 px"
+          fontSize={{base:"20",md:'30',lg:"30"}}
+          my="2"
           lineHeight="37 px"
           color="white"
         >
           Recherchez vos destination
         </Text>
         <Flex
-          direction="row"
-          py="71"
-          px="111"
+          direction={{base:"column",md:'row',lg:"row"}}
+          p={{base:"4%",md:'5%',lg:"4%"}}
           bg="white"
           rounded="md"
-          mt="36"
-          gap="130 px"
+          flexWrap='wrap'
+          justifyContent='space-between'
+          gap={{base:'50px',md:'50px' }}
+          alignContent='center'
         >
-          <Box gap="56 px">
+          <Flex direction="column" gap="50px">
             <Text fontWeight="700" fontSize="18" lineHeight="22 px">
               Sélectionnez votre destination :
             </Text>
             <Input
-              w="299 px"
+              w="xs"
               h="46 px"
               bg="#F7EEEE"
               rounded="full"
@@ -49,13 +55,13 @@ export default function PaquetsHeaderContent() {
               placeholderFontWeight="400"
               placeholderFontSize="16 px"
             />
-          </Box>
-          <Box gap="56 px">
+          </Flex>
+          <Flex direction="column" gap="50px">
             <Text fontWeight="700" fontSize="18" lineHeight="22 px">
               Sélectionnez votre date :
             </Text>
             <Input
-              w="299 px"
+              w="xs"
               h="46 px"
               bg="#F7EEEE"
               rounded="full"
@@ -64,17 +70,17 @@ export default function PaquetsHeaderContent() {
               placeholderFontWeight="400"
               placeholderFontSize="16 px"
             />
-          </Box>
-          <Box gap="68 px">
+          </Flex>
+          <Flex direction="column" gap="50px">
             <Text fontWeight="700" fontSize="18" lineHeight="22 px">
               Prix :
               <Text color="#D3D3D3" ml="41px">
                 {onChangeValue} $
               </Text>
             </Text>
-            <Box w="272 px">
+            <Box w="100%">
               <Slider
-                w="3/4"
+                w="xs"
                 maxW="300"
                 defaultValue={500}
                 minValue={0}
@@ -92,7 +98,7 @@ export default function PaquetsHeaderContent() {
                 <Slider.Thumb />
               </Slider>
             </Box>
-          </Box>
+          </Flex>
         </Flex>
       </Box>
     </>

@@ -1,25 +1,73 @@
 import React from "react";
-import { Center, Flex, Text, Select, CheckIcon, Box, Input } from "native-base";
+import {
+  Center,
+  Flex,
+  Text,
+  Select,
+  CheckIcon,
+  Box,
+  Input,
+  Image,
+} from "native-base";
 
 export default function HeaderContent() {
   return (
     <>
       <Box position="absolute" w="100%">
         <img src={require("../../Image/imageback.png")} alt="" />
-            
       </Box>
-      <Flex  position='fixed' mr='32.39 px' bottom={10} right={0}  zIndex={10} alignItems='flex-end'  >
-              <img src={require("../../Image/LogoWhatsapp.png")} alt="" width="40px" height="40px" />
-              
-            </Flex>
-      <Center mx="250 px" mt="183 px" mb="133.14 px">
-        <Text fontWeight="900" fontSize="50" lineHeight="61 px" color="white">
+      <Flex
+        position="fixed"
+        mr="32.39 px"
+        bottom={10}
+        right={0}
+        zIndex={10}
+        alignItems="flex-end"
+      >
+        <img
+          src={require("../../Image/LogoWhatsapp.png")}
+          alt=""
+          width="40px"
+          height="40px"
+        />
+      </Flex>
+      <Center
+        mt={{
+          base: "20%",
+          md: "20%",
+          lg: "20%",
+        }}
+        
+      >
+        <Text
+          fontWeight="900"
+          textAlign="center"
+          fontSize={{
+            base: "30",
+            md: "50",
+            lg: "50",
+          }}
+          lineHeight={{
+            base: "35px",
+            md: "50px",
+            lg: "61 px",
+          }}
+          color="white"
+        >
           Recherchez vos prochaines vacances
         </Text>
         <Text
           fontWeight="500"
-          fontSize="28"
-          mt="36"
+          fontSize={{
+            base: "16",
+            md: "20",
+            lg: "28",
+          }}
+          mt={{
+            base: "15",
+            md: "36",
+            lg: "36",
+          }}
           lineHeight="34 px"
           color="white"
         >
@@ -27,18 +75,55 @@ export default function HeaderContent() {
         </Text>
         <Flex
           direction="row"
-          mt="109 px"
+          mt={{
+            base: "10%",
+            md: "20%",
+            lg: "10%",
+          }}
           alignItems="center"
           justifyContent="center"
-          gap="50px"
-          mb='100px'
+          gap={{
+            base: "10px",
+            md:'50px',
+            lg: "50px",
+          }}
+          mb={{base:'10%'}}
         >
-          <img src={require("../../Image/ImageSeDetendre.png")} alt="" />
-          <img src={require("../../Image/ImageCulturel.png")} alt="" />
-          <img src={require("../../Image/Histoire.png")} alt="" />
+          <Image
+            source={{
+              uri: require("../../Image/ImageSeDetendre.png"),
+            }}
+            alt=""
+            size={{
+              base: "100px",
+              md: "152.86px",
+              lg: "152.86px",
+            }}
+          />
+          <Image
+            source={{
+              uri: require("../../Image/ImageCulturel.png"),
+            }}
+            alt=""
+            size={{
+              base: "100px",
+              md: "152.86px",
+              lg: "152.86px",
+            }}
+          />
+          <Image
+            source={{
+              uri: require("../../Image/Histoire.png"),
+            }}
+            alt=""
+            size={{
+              base: "100px",
+              md: "152.86px",
+              lg: "152.86px",
+            }}
+          />
         </Flex>
       </Center>
-      
     </>
   );
 }
