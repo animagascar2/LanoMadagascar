@@ -2,16 +2,29 @@ import React from "react";
 import { Box, Flex, Heading, Text, Button } from "native-base";
 import { styles } from "../../styles";
 import HeadERLano from "../NAVBAR/HeadERLano";
+import { motion } from "framer-motion";
 
 export default function DetailsProduct(props) {
   return (
-    <Box>
+    <Box mt='100px'>
       <HeadERLano active={props.active} />
+      
       <Flex direction="row" alignItems="center" flexWrap='wrap' px="4%" justifyContent='space-around'>
+      
+        
         <Box w= {{base:'100%',md:'50%',lg:'50%'}}>
-          <img alt="" src={require("../../Image/DetailsProduct.png")} />
+        <motion.div
+                animate={{ scale: 1 }}
+                initial={{ scale: 0}}
+                whileHover={{ scale: 1.2, zIndex: 300 }}
+              >
+          <img alt="" src={require("../../Image/DetailsProduct.png")} /> 
+          </motion.div>
         </Box>
+       
+        
         <Flex w= {{base:'100%',md:'50%',lg:'50%'}}>
+        <div class="d-flex flex-column align-content-center" data-aos="fade-left">
           <Heading
             fontWeight="700"
             fontSize={{base:'46',md:'48',lg:'48'}}
@@ -21,6 +34,7 @@ export default function DetailsProduct(props) {
           >
             Huile essentiel citrons
           </Heading>
+          
           <Heading
             fontWeight="700"
             fontSize="24"
@@ -100,6 +114,7 @@ export default function DetailsProduct(props) {
               </Text>
             </Flex>
           </Button>
+          </div>
         </Flex>
       </Flex>
       <Flex

@@ -5,9 +5,8 @@ import { styles } from "../../styles";
 export default function FooterLanoContent() {
   const fn = "Roboto !important";
   return (
-    <Box>
+    <div data-aos="slide-up">
       
-      <Box>
         <Box position="absolute" my={{base:"35px",md:"90px",lg:"167px"}} mx={{base:"4px",md:"80px",lg:"80px"}}>
           <Input
             width={{base:"350px",md:"729px",lg:"729px"}}
@@ -29,8 +28,7 @@ export default function FooterLanoContent() {
           />
         </Box>
         <img src={require("../../Image/footerBackground.png")} alt="" />
-      </Box>
-    </Box>
+        </div>
   );
 }
 

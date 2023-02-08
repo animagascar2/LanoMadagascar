@@ -1,15 +1,17 @@
 import React from "react";
 import { useState } from "react";
 import { Box, Slider, Flex, Text, Input,Center } from "native-base";
+import {DatePicker} from 'antd'
 
 export default function PaquetsHeaderContent() {
   const [onChangeValue, setOnChangeValue] = React.useState(500);
   return (
-    <>
+   <>
       <Flex  position='fixed' mr='32.39 px' bottom={10} right={0}  zIndex={10} alignItems='flex-end'  >
               <img src={require("../../Image/LogoWhatsapp.png")} alt="" width="40px" height="40px" />
               
             </Flex>
+        <div class="item" data-aos="fade-down">
       <Box  p={{base:"4%" ,lg:'10%'}} pt={{base:"25%" ,lg:'20%'}}
         style={{  
           backgroundImage: "url(" + require("../../Image/imageback.png") + ")",
@@ -31,6 +33,7 @@ export default function PaquetsHeaderContent() {
         >
           Recherchez vos destination
         </Text>
+        
         <Flex
           direction={{base:"column",md:'row',lg:"row"}}
           p={{base:"4%",md:'5%',lg:"4%"}}
@@ -70,6 +73,10 @@ export default function PaquetsHeaderContent() {
               placeholderFontWeight="400"
               placeholderFontSize="16 px"
             />
+            {/* <DatePicker  height="46 px"
+              background="#F7EEEE"
+              rounded="full"
+        /> */}
           </Flex>
           <Flex direction="column" gap="50px">
             <Text fontWeight="700" fontSize="18" lineHeight="22 px">
@@ -101,6 +108,7 @@ export default function PaquetsHeaderContent() {
           </Flex>
         </Flex>
       </Box>
-    </>
+      </div>
+      </>
   );
 }

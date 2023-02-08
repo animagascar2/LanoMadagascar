@@ -16,7 +16,9 @@ export default function Connexion() {
   return (
     <Center>
       <Flex direction="row" justifyContent="space-around" w="100%">
+      
         <Box w={{ lg: "30%" }} p={{ lg: "2%" }}>
+        <div class="d-flex flex-column" data-aos="fade-right">
           <Box ml={{ base: "30%", md: "25%", lg: "0" }}>
             <Link to="/" style={styles.textDeco}>
               <img
@@ -163,18 +165,24 @@ export default function Connexion() {
           >
             © 2023 Lano Madagascar. Tous droits réservés
           </Text>
+          </div>
         </Box>
+        
+        
         <Box
           p="4"
           w={{ lg: "50%" }}
           display={{ base: "none", md: "none", lg: "flex" }}
         >
+          <div class="item" data-aos="fade-left">
           <img
             src={require("../../Image/ConnexionSlideP1.png")}
             alt=""
             width="90%"
           />
+          </div>
         </Box>
+        
       </Flex>
     </Center>
   );

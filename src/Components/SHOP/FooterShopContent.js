@@ -4,15 +4,18 @@ import { styles } from "../../styles";
 
 export default function FooterShopContent() {
   return (
+    <div class="item" data-aos="slide-up">
     <Box background=' #D3D3D3'>
         <Box>
           
           <Box position="absolute">
+          <div class="item" data-aos="fade-right">
             <img
               src={require("../../Image/foot1.png")}
               alt=""
               width='100%'
             />
+            </div>
           </Box>
           <img src={require("../../Image/FootBGShop.png")} alt="" width='100%'/>
         </Box>
@@ -39,5 +42,6 @@ export default function FooterShopContent() {
           />
           </Flex>
     </Box>
+    </div>
   )
 }

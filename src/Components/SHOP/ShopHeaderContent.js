@@ -22,7 +22,7 @@ export default function ShopHeaderContent() {
           height="40px"
         />
       </Flex>
-
+      <div class="item" data-aos="fade-down">
       <Flex  p='10%' pt={{base:"25%" ,lg:'20%'}}
         style={{  
           backgroundImage: "url(" + require("../../Image/backgroundHeaderShop.png") + ")",
@@ -32,6 +32,7 @@ export default function ShopHeaderContent() {
           width:'100%',
           height:'auto'
         }}>
+          
         <Text
           color="#1B4C74"
           style={styles.fn}
@@ -42,6 +43,7 @@ export default function ShopHeaderContent() {
         >
           Huile essentiel
         </Text>
+        
         <Text
           color={{base:"#FFFFFF",lg:"#000000"}}
           mt="7"
@@ -78,7 +80,7 @@ export default function ShopHeaderContent() {
           pb="16 px"
           px="32 px"
         >
-          <Link to="/Shop/Shopproduct" style={styles.textDeco}>
+          <Link to="/Shopproduct" style={styles.textDeco}>
             <Flex direction="row" gap="10 px">
               <img src={require("../../Image/iconPanier.png")} alt="" />
               <Text
@@ -94,6 +96,7 @@ export default function ShopHeaderContent() {
           </Link>
         </Button>
       </Flex>
+      </div>
     </>
   );
 }

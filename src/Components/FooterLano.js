@@ -5,7 +5,7 @@ import { styles } from "../styles";
 export default function FooterLano(props) {
  
   return (
-    <Box >
+    <div data-aos="slide-up">
       
       <Box bg="black" pl="32 px">
         <Flex
@@ -282,6 +282,6 @@ export default function FooterLano(props) {
           </Text>
         </Flex>
       </Box>
-    </Box>
+    </div>
   );
 }

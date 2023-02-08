@@ -3,10 +3,12 @@ import { Box, Center, Flex, Heading, Text,Input, Button,Hidden } from "native-ba
 import HeadERLano from "../NAVBAR/HeadERLano";
 import { styles } from "../../styles";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function ContacterNous(props) {
   return (
-    <Box >
+    <div class="item" data-aos="fade-down">
+    <Box mt='100px'>
       <HeadERLano active={props.active} />
       <Flex direction="row" display={{base:'none',lg:'flex'}} my="10px" ml="80px">
         <Link to="/Apropos" style={styles.textDeco}>
@@ -15,9 +17,11 @@ export default function ContacterNous(props) {
       </Flex>
       <Flex direction="row">
         <Box  display={{base:'none',md:'none',lg:'flex'}}>
-          <img alt="" src={require("../../Image/VectorContact.png")} width="80%"/>
+          <div class="item" data-aos="fade-right">
+              <img alt="" src={require("../../Image/VectorContact.png")} width="80%"/>
+          </div>
         </Box>
-        <Box width={{base:'100%',md:'100%',lg:'50%'}} p={{base:'4',md:'5%',lg:'4'}}>
+        <Center width={{base:'100%',md:'100%',lg:'50%'}} p={{base:'4',md:'5%',lg:'4'}}>
             <Heading
               fontWeight="800"
               fontSize={{base:'35',md:'50',lg:'50'}}
@@ -93,10 +97,10 @@ export default function ContacterNous(props) {
           
           <Button
           w="238px"
-          variant="outline"
           bg="#1B4C74"
           borderRadius="4 px"
         > 
+        <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
         <Link to="/Apropos/ContacterNous" style={styles.textDeco}>
           <Flex direction="row" gap="110 px">
             <Text
@@ -111,8 +115,10 @@ export default function ContacterNous(props) {
             <img src={require("../../Image/IconSend.png")} alt=""/>
           </Flex>
           </Link>
+          </motion.div>
         </Button>
-        </Box>
+        </Center>
+        
       </Flex>
       <Flex direction="row" gap='26px' ml={{base:'6',md:'30%',lg:"224 px"}} mb={{base:'4',lg:"22 px"}} mt={{lg:"-55 px"}} >
         <img alt="" src={require("../../Image/IconYoutubeBlue.png")} />
@@ -122,5 +128,6 @@ export default function ContacterNous(props) {
         <img alt="" src={require("../../Image/IconInstagramBlue.png")} />
       </Flex>
     </Box>
+    </div>
   );
 }

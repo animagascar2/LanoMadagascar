@@ -17,12 +17,15 @@ export default function Inscription() {
     <Center>
       <Flex direction="row" justifyContent="space-around">
         <Box p="4" display={{ base: "none", md: "none", lg: "flex" }}>
+        <div class="d-flex flex-column" data-aos="fade-right">
           <img
             src={require("../../Image/ConnexionSlideP1.png")}
             alt=""
             width="90%"
           />
+          </div>
         </Box>
+        <div class="d-flex flex-column" data-aos="fade-left">
         <Flex
           alignItems={{ base: "center", md: "center", lg: "flex-end" }}
           py="10"
@@ -69,6 +72,7 @@ export default function Inscription() {
                 </Box>
               }
             />
+            <Link to="/Connexion" style={styles.textDeco}>
             <Button
               rounded="8px"
               w="100%"
@@ -78,6 +82,7 @@ export default function Inscription() {
               px="32 px"
               mt="30px"
             >
+              
               <Text
                 color="white"
                 fontWeight="700"
@@ -86,7 +91,9 @@ export default function Inscription() {
               >
                 Se connecter
               </Text>
+              
             </Button>
+            </Link>
           </Flex>
 
           <Text
@@ -100,6 +107,7 @@ export default function Inscription() {
             © 2023 Lano Madagascar. Tous droits réservés
           </Text>
         </Flex>
+        </div>
       </Flex>
     </Center>
   );

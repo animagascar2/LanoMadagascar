@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import {
   Center,
   Flex,
@@ -11,11 +12,13 @@ import {
 } from "native-base";
 
 export default function HeaderContent() {
+  
   return (
-    <>
+    <div data-aos="fade-down">
       <Box position="absolute" w="100%">
         <img src={require("../../Image/imageback.png")} alt="" />
       </Box>
+      
       <Flex
         position="fixed"
         mr="32.39 px"
@@ -23,13 +26,19 @@ export default function HeaderContent() {
         right={0}
         zIndex={10}
         alignItems="flex-end"
-      >
+      > 
+      <motion.div
+       initial={{ opacity: 0, scale: 0.5 }}
+       animate={{ opacity: 1, scale: 1 }}
+       transition={{ duration: 0.5 }}
+    >
         <img
           src={require("../../Image/LogoWhatsapp.png")}
           alt=""
           width="40px"
           height="40px"
         />
+        </motion.div>
       </Flex>
       <Center
         mt={{
@@ -37,7 +46,6 @@ export default function HeaderContent() {
           md: "20%",
           lg: "20%",
         }}
-        
       >
         <Text
           fontWeight="900"
@@ -56,6 +64,7 @@ export default function HeaderContent() {
         >
           Recherchez vos prochaines vacances
         </Text>
+        {/* </motion.h1> */}
         <Text
           fontWeight="500"
           fontSize={{
@@ -84,10 +93,10 @@ export default function HeaderContent() {
           justifyContent="center"
           gap={{
             base: "10px",
-            md:'50px',
+            md: "50px",
             lg: "50px",
           }}
-          mb={{base:'10%'}}
+          mb={{ base: "10%" }}
         >
           <Image
             source={{
@@ -124,6 +133,6 @@ export default function HeaderContent() {
           />
         </Flex>
       </Center>
-    </>
+    </div>
   );
 }

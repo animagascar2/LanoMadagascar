@@ -8,7 +8,11 @@ const navStyle = {
   
 };
 const navbarStyle = {
-  zIndex:10
+  zIndex:10,
+  background: 'rgba(255, 255, 255, 0.6)',
+boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+backdropFilter: "blur(5px)",
+WebkitBackDropFilter: 'blur(5px)',
 }
 
 const logoStyle = {
@@ -38,7 +42,6 @@ const titlefootstyle = {
 };
 const textDeco = {
   textDecoration :'none',
-  color:'white'
 }
 
 const btnReservez = {

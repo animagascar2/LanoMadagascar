@@ -5,7 +5,7 @@ import { Box, Flex, Text,
 
 export default function HeaderContentShopProd() {
   return (
-    <Box>
+    <div class="item" data-aos="slide-down">
       <Flex direction={{base:'column-reverse',md:'row',lg:'row'}} justifyContent='center' px={{base:'4',md:'4',lg:'20'}}py={{base:'4',md:'4',lg:'0'}} alignItems="center">
         <Box  w= {{base:'100%',md:'50%',lg:'50%'}} >
           <Text
@@ -49,7 +49,6 @@ export default function HeaderContentShopProd() {
               <img src={require("../../Image/LogoWhatsapp.png")} alt="" width="40px" height="40px" />
               
             </Flex>
-      
-    </Box>
+    </div>
   )
 }

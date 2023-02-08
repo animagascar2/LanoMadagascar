@@ -5,13 +5,17 @@ import { Box} from "native-base";
 import HeadERLano from '../NAVBAR/HeadERLano';
 import FooterLano from '../FooterLano';
 import FooterLanoContent from './FooterLanoContent';
-import { Link } from "react-router-dom";
+
+
 export default function Accueil(props) {
+  
   return (
     <Box>
-        <HeadERLano active = {props.active} backG ={props.bG}/>
-        <HeaderContent mt='50px'/>
+      
+        <HeadERLano/>
+        <HeaderContent />
         <ListeDestinations/>
+        
         <FooterLanoContent />
         <FooterLano />
     </Box>

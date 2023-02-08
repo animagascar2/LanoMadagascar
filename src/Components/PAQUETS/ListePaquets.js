@@ -17,6 +17,7 @@ export default function ListePaquets() {
   const ListeCircuit = mapGetters("circuit/ListeCircuit");
 
   return (
+    
     <Flex p='6%'>
       <Flex
         direction="row"
@@ -24,6 +25,7 @@ export default function ListePaquets() {
         gap="14px"
         pb='4%'
       >
+        <div data-aos="slide-up">
         <Text
           color="black"
           fontWeight="700"
@@ -33,6 +35,8 @@ export default function ListePaquets() {
         >
           Conversion
         </Text>
+        </div>
+        <div data-aos="slide-up">
         <Input
           w="114px"
           h="29px"
@@ -48,6 +52,7 @@ export default function ListePaquets() {
           }
           placeholder="USD $"
         />
+        </div>
       </Flex>
       <Box mb="70 px">
         <Box>
@@ -58,7 +63,8 @@ export default function ListePaquets() {
             gap="30px"
           >
             {ListeCircuit.map((itm, idx) => {
-              return <Card
+              return <div data-aos="slide-up">
+              <Card
               style={{
                 width: 400,
                 borderRadius: "20px",
@@ -131,6 +137,7 @@ export default function ListePaquets() {
                 </Text>
               </Button>
             </Card>
+            </div>
             })}
             
           </Flex>
