@@ -14,6 +14,7 @@ import {
 import Connexion from './Components/CONNEXION/Connexion';
 import AOS from 'aos';
 import Inscription from './Components/CONNEXION/Inscription';
+import PageAdmin from './Components/ADMIN/PageAdmin';
 import 'aos/dist/aos.css';
 
 function App() {
@@ -24,16 +25,17 @@ function App() {
     <NativeBaseProvider>
       
       <Routes>
-        <Route path="/" element={<Accueil active="Accueil" bG='rgba(23, 23, 23, 0.59)' />} />
+        <Route path="/" element={<Accueil active="Accueil"/>} />
         <Route path="/Connexion" element={<Connexion/>} />
         <Route path="/Inscription" element={<Inscription/>} />
-        <Route path="paquets" element={<Paquets active='Paquets' bG='rgba(23, 23, 23, 0.59)'/>} />
+        <Route path="paquets" element={<Paquets active='Paquets' />} />
         <Route path="shop" element={<Shop active='Shop' />} />
         <Route path="/Shopproduct" element={<Shopproduct active='Shop'/>} />
         <Route path="/Shop/DetailsProduct" element={<DetailsProduct active='Shop'/>} />
         <Route path="/Apropos" element={<Apropos active='Apropos'/>} />
         <Route path="/Apropos/ContacterNous" element={<ContacterNous active='Apropos'/>} />
-        <Route path="/DetailsDestination" element={<Detailsdestination active='DetailsDestination'/>} />
+        <Route path="/DetailsDestination" element={<Detailsdestination/>} />
+        <Route path="Admin" element={<PageAdmin />} />
       </Routes>
       </NativeBaseProvider>
 //     <>

@@ -80,11 +80,13 @@ export default function ContentDetails() {
         justifyContent="space-between"
         gap="20px"
       >
-        <Box w={{ base: "100%", md: "48%", lg: "48%" }}>
-          <div class="item" data-aos="fade-right">
+        <div class="item" data-aos="fade-right">
+        <Box w={{ base: "100%", md: "100%", lg: "100%" }}>
+          
             <img src={require("../../Image/MTPhotos1.png")} alt="" />
-          </div>
+          
         </Box>
+        </div>
         {loadCircuit ? (
           <Center mr="300px">
             <div class="item" data-aos="zoom-in">

@@ -73,10 +73,6 @@ export default function PaquetsHeaderContent() {
               placeholderFontWeight="400"
               placeholderFontSize="16 px"
             />
-            {/* <DatePicker  height="46 px"
-              background="#F7EEEE"
-              rounded="full"
-        /> */}
           </Flex>
           <Flex direction="column" gap="50px">
             <Text fontWeight="700" fontSize="18" lineHeight="22 px">

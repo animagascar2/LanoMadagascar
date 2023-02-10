@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ useEffect, useState } from "react";
 import {
   Box,
   Divider,
@@ -11,10 +11,14 @@ import {
 } from "native-base";
 import { Avatar, Card } from "antd";
 import { styles } from "../../styles";
-import { mapGetters } from "../../store/reex";
+import { mapActions, mapGetters } from '../../store/reex';
 
 export default function ListePaquets() {
-  const ListeCircuit = mapGetters("circuit/ListeCircuit");
+  const getList = mapActions('circuit/getList');
+  const ListeCircuits = mapGetters('circuit/ListeCircuits');
+  useEffect(() => {
+    getList()
+}, []);
 
   return (
     
@@ -62,7 +66,7 @@ export default function ListePaquets() {
             justifyContent="space-between"
             gap="30px"
           >
-            {ListeCircuit.map((itm, idx) => {
+            {ListeCircuits.map((itm, idx) => {
               return <div data-aos="slide-up">
               <Card
               style={{
@@ -71,7 +75,7 @@ export default function ListePaquets() {
                 borderColor: "#786a6a6b",
               }}
               bordered="false"
-              cover={<img alt="" src={require("../../Image/"+itm.title+'/'+itm.image)} />}
+              cover={<img alt="" src={require("../../Image/"+itm.nom+'/P3.png')} />}
             >
               <Box>
                 <Flex direction="row" justifyContent='space-between' >
@@ -95,7 +99,7 @@ export default function ListePaquets() {
                         lineHeight="22 px"
                         color="#1B4C74"
                       >
-                        {itm.title}
+                        {itm.nom}
                       </Heading>
                     </Flex>
                   </Box>
@@ -106,7 +110,7 @@ export default function ListePaquets() {
                       fontSize="18"
                       lineHeight="22 px"
                     >
-                      {itm.prix}$
+                      {itm.prixAdulte }$
                     </Text>
                   </Box>
                 </Flex>
@@ -119,7 +123,7 @@ export default function ListePaquets() {
                   textAlign="justify"
                   mx="2"
                 >
-                  {itm.details}
+                  {itm.description}
                 </Text>
               </Box>
               <Button

@@ -9,7 +9,7 @@ import ListePaquets from './ListePaquets';
 export default function Paquets(props) {
   return (
     <Box>
-        <HeadERLano active = {props.active} backG ={props.bG}/>
+        <HeadERLano active = {props.active} />
         <PaquetsHeaderContent/>
         <ListePaquets/>
         <FooterLanoContent />
