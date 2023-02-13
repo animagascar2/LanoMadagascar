@@ -10,7 +10,6 @@ export function getList ({ commit, getState }, v) {
     })
 }
 export function postCircuit ({ commit, getState }, v) {
-    console.log('vvvvv', v)
     return new Promise((resolve, reject) => {
         axios
             .post('http://localhost/LANO/',v)
