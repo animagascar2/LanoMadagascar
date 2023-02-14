@@ -11,18 +11,16 @@ function GestionCircuit() {
   const postCircuit = mapActions("circuit/postCircuit");
 
   const onFinish = (inputs) => {
-    // console.log("Received values of form: ", inputs);
     postCircuit(inputs);
   };
   const getFile = (e) => {
-    console.log("Upload event:", e);
-
+    console.log('Upload event:', e);
+  
     if (Array.isArray(e)) {
       return e;
     }
-    return e && e.fileList;
+   return e && e.fileList;
   };
-
   return (
     <Flex p="4" w="70%">
       <Heading pb="4">Ajout Circuit</Heading>
@@ -160,7 +158,7 @@ function GestionCircuit() {
         >
           <Input />
         </Form.Item>
-        <Form.Item
+        {/* <Form.Item
           label="VideoName"
           name="videoName"
           rules={[
@@ -175,23 +173,8 @@ function GestionCircuit() {
           ]}
         >
           <Input />
-        </Form.Item>
-        {/* <Form.Item
-        label="Images"
-        name="images"
-        rules={[
-          {
-            required: true,
-            message: "Veuillez remplir le champs",
-          },
-          {
-            pattern: /^[a-zA-Z0-9]+$/,
-            message: "Name can only include letters and numbers.",
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item> */}
+        </Form.Item> */}
+        
         <Form.Item
           label="Geolocalisations"
           name="geolocalisations"
@@ -204,16 +187,33 @@ function GestionCircuit() {
         >
           <Input />
         </Form.Item>
+        <Form.Item
+        label="Lien Youtube"
+        name="lienYoutube"
+        rules={[
+          {
+            required: true,
+            message: "Veuillez remplir le champs",
+          },
+          {
+            pattern: /^[a-zA-Z0-9]+$/,
+            message: "Name can only include letters and numbers.",
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
         <Form.Item name="image" getValueFromEvent={getFile}>
-          <Upload
+          
+            <Upload
             action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
             listType="picture"
-            maxCount={4}
+            maxCount={3}
             multiple
-            onDownload={(file) => {
-              console.log({ file });
-              return true;
+            beforeUpload={(file)=>{
+              return false
             }}
+            
           >
             <Button icon={<UploadOutlined />}>Upload image (Max:4)</Button>
           </Upload>
