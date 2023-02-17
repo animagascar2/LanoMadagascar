@@ -12,18 +12,28 @@ import {
 import React, { useEffect, useState } from "react";
 import { styles } from "../../styles";
 import { Link } from "react-router-dom";
-import { mapGetters } from "../../store/reex";
 import PulseLoader from "react-spinners/PulseLoader";
 import { motion } from "framer-motion";
+import { mapActions, mapGetters } from "../../store/reex";
 
 export default function ListeDestinations() {
-  const ListeCircuit = mapGetters("circuit/ListeCircuit");
   const [loadCircuit, setLoadCircuit] = useState(true);
+  const getCurrency = mapActions('circuit/getCurrency');
   useEffect(() => {
     setTimeout(() => {
       setLoadCircuit(false);
     }, 3000);
   }, []);
+  const getListPrincipal = mapActions('circuit/getListPrincipal');
+  const ListeCircuitsPrincipal = mapGetters('circuit/ListeCircuitsPrincipal');
+  useEffect(() => {
+    getListPrincipal()
+    console.log(ListeCircuitsPrincipal)
+}, []);
+ const changeCurency = (value) => {
+  const v = {'from':'USD','to':Value}
+  getCurrency()
+ }
 
   return (
     <Box>
@@ -68,10 +78,11 @@ export default function ListeDestinations() {
                 endIcon: <CheckIcon size={5} />,
               }}
               mt="1"
+              onValueChange={(value) => changeCurency(value)}
             >
-              <Select.Item label="USD $" value="USD $" />
-              <Select.Item label="EURO €" value="web" />
-              <Select.Item label="Yuan  ¥" value="ui" />
+              <Select.Item label="USD $" value="USD" />
+              <Select.Item label="EURO €" value="EUR" />
+              <Select.Item label="Yuan  ¥" value="YUAN" />
             </Select>
           </Flex>
           <Center mt="43 px">
@@ -112,15 +123,17 @@ export default function ListeDestinations() {
               alignContent="center"
               justifyContent="center"
             >
-              <motion.div
+              {ListeCircuitsPrincipal.map((itm, id) => {
+                return <motion.div
                 animate={{ scale: 1 }}
                 initial={{ scale: 0 }}
                 whileHover={{ scale: 1.2, zIndex: 300 }}
+                key={id}
               >
-                <Box>
+                <Box width='323.31px'>
                   <Link to="/DetailsDestination" style={styles.textDeco}>
                     <img
-                      src={require("../../Image/C1.png")}
+                      src={"http://localhost/LANO/ImagesUpload/"+itm.imageP}
                       alt=""
                       width="323.31px "
                       height="295.64px"
@@ -133,7 +146,7 @@ export default function ListeDestinations() {
                       lineHeight="24 px"
                       color="white"
                     >
-                      Nosy-Be Tours
+                      {itm.nom} Tours
                     </Heading>
                     <Text
                       fontWeight="500"
@@ -141,11 +154,13 @@ export default function ListeDestinations() {
                       lineHeight="24 px"
                       color="white"
                     >
-                      2 Jours
+                      {itm.dureeCircuit} Jours
                     </Text>
                   </Box>
                 </Box>
               </motion.div>
+              })}
+              
               <motion.div
                 animate={{ scale: 1 }}
                 initial={{ scale: 0 }}

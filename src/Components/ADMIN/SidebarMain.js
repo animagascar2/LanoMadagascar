@@ -22,7 +22,7 @@ function PageAdmin (props) {
             </Tabs>
         </div>
         <Link className='col-lg-1' to={'/'} >
-            <Button  className='btn-primary'>Log Out <i className="fa fa-user"></i></Button>
+            <Button  className='btn-primary'>Log Out<i className="fa fa-user"></i></Button>
         </Link>   
             
     </div>

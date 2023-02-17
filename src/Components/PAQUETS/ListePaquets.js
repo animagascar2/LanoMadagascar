@@ -51,7 +51,7 @@ export default function ListePaquets() {
           lineHeight="17px"
           InputRightElement={
             <Box mr="2">
-              <img src={require("../../Image/SelectIconBlack.png")} alt="" />
+              <img src={require("../../Image/SelectIconBlack.png")} alt=""  />
             </Box>
           }
           placeholder="USD $"
@@ -68,17 +68,19 @@ export default function ListePaquets() {
           >
             {ListeCircuits.map((itm, idx) => {
               return <div data-aos="slide-up">
-              <Card
+              <Box
               style={{
                 width: 400,
-                borderRadius: "20px",
-                borderColor: "#786a6a6b",
+                border:'1px',
+                padding:"0px",
               }}
-              bordered="false"
-              cover={<img alt="" src={require("../../Image/"+itm.nom+'/P3.png')} />}
+              
             >
-              <Box>
-                <Flex direction="row" justifyContent='space-between' >
+              <Box zIndex={0}> <img alt="" src={"http://localhost/LANO/ImagesUpload/"+itm.imageP} /></Box>
+              <Box mt="-50px" bg='white' p="4" borderWidth="1"
+              borderColor="#786a6a6b" borderBottomRightRadius='lg' borderBottomLeftRadius='lg'>
+                  
+                <Flex direction="row" justifyContent='space-between' zIndex={30} >
                   <Box>
                     <Heading
                       fontWeight="800"
@@ -123,10 +125,9 @@ export default function ListePaquets() {
                   textAlign="justify"
                   mx="2"
                 >
-                  {itm.description}
+                  {itm.descriptionC}
                 </Text>
-              </Box>
-              <Button
+                <Button
                 w="112px"
                 h="49px"
                 mt="12 px"
@@ -140,7 +141,9 @@ export default function ListePaquets() {
                   Détails
                 </Text>
               </Button>
-            </Card>
+              </Box>
+              
+            </Box>
             </div>
             })}
             

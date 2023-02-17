@@ -16,11 +16,13 @@ import AOS from 'aos';
 import Inscription from './Components/CONNEXION/Inscription';
 import PageAdmin from './Components/ADMIN/PageAdmin';
 import 'aos/dist/aos.css';
+import axios from 'axios';
 
 function App() {
   AOS.init({
     duration: 1200,
   })
+  
   return (
     <NativeBaseProvider>
       
@@ -38,32 +40,9 @@ function App() {
         <Route path="Admin" element={<PageAdmin />} />
       </Routes>
       </NativeBaseProvider>
-//     <>
-//     <div style={{width:" 200px",
-//   height: "200px",
-//   margin: "50px auto",
-//   paddingTop: "75px",
-//   background: '#ccc',
-//   textAlign: 'center',
-//   color: '#FFF',
-//   fontSize: '3em'
-// }} class="item"  data-aos="fade-up">1</div>
-// <div class="item" data-aos="fade-down">2</div>
-// <div class="item" data-aos="fade-right">3</div>
-// <div class="item" data-aos="fade-left">4</div>
-
-// <div class="item" data-aos="zoom-in">5</div>
-// <div class="item" data-aos="zoom-out">6</div>
-
-// <div class="item" data-aos="slide-up">7</div>
-
-// <div class="item" data-aos="flip-up">8</div>
-// <div class="item" data-aos="flip-down">9</div>
-// <div class="item" data-aos="flip-right">10</div>
-// <div class="item" data-aos="flip-left">11</div>
-//     </>
 
   );
 }
 
 export default App;
+

@@ -5,6 +5,7 @@ import { Rate } from "antd";
 import { styles } from "../../styles";
 import { ColorRing } from 'react-loader-spinner'
 import { motion } from "framer-motion";
+import Ratio from 'react-bootstrap/Ratio';
 
 export default function ContentDetails() {
   const [loadCircuit, setLoadCircuit] = useState(true);
@@ -83,7 +84,12 @@ export default function ContentDetails() {
         <div class="item" data-aos="fade-right">
         <Box w={{ base: "100%", md: "100%", lg: "100%" }}>
           
-            <img src={require("../../Image/MTPhotos1.png")} alt="" />
+        <div style={{ width: 700, height: '700' }}>
+      <Ratio aspectRatio="4x3">
+        <iframe title="embedsPage" className="embed-responsive-item" src="https://www.youtube.com/embed/v64KOxKVLVg"
+        allowfullscreen></iframe>
+      </Ratio>
+    </div>
           
         </Box>
         </div>

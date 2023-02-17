@@ -1,20 +1,53 @@
-// import React , {useRef,ChangeEvent,useState}from "react";
-import { Box, Flex, Heading } from "native-base";
-import { UploadOutlined } from "@ant-design/icons";
-
-import { Button, Form, Input, Upload } from "antd";
-import { TextArea } from "native-base";
+import React from "react";
+import { Button, Form,Input,  Upload,DatePicker } from "antd";
 import { mapActions, mapGetters } from "../../../store/reex";
 
-function GestionCircuit() {
+
+function FormAdd() {
+  const Swal = require('sweetalert2');
   const [form] = Form.useForm();
   const postCircuit = mapActions("circuit/postCircuit");
+  const dateFormat = 'YYYY/MM/DD';
+  const getList = mapActions('circuit/getList');
+  const ListeCircuits = mapGetters('circuit/ListeCircuits')
 
+  
   const onFinish = (inputs) => {
-    postCircuit(inputs);
+    const isFound = ListeCircuits.some(element => {
+      if (element.nom === inputs.nom) {
+        return true;
+      }
+      return false;
+    });
+
+    if (isFound) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Ce circuit est dejà créer',
+      })
+      form.resetFields();
+    }else{
+      postCircuit(inputs)
+    .then((response) => {
+      if( response === "success"){
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Your work has been saved',
+          showConfirmButton: false,
+          timer: 2000
+        })
+         getList();
+         form.resetFields()
+      };
+    })
+    }
+
+    
+
   };
   const getFile = (e) => {
-    console.log('Upload event:', e);
   
     if (Array.isArray(e)) {
       return e;
@@ -22,8 +55,7 @@ function GestionCircuit() {
    return e && e.fileList;
   };
   return (
-    <Flex p="4" w="70%">
-      <Heading pb="4">Ajout Circuit</Heading>
+    <div className="">
       <Form
         name="userForm"
         form={form}
@@ -31,7 +63,7 @@ function GestionCircuit() {
         requiredMark="optional"
         labelAlign="left"
         labelCol={{
-          span: 4,
+          span: 2,
         }}
         wrapperCol={{
           span: 16,
@@ -52,39 +84,7 @@ function GestionCircuit() {
             },
           ]}
         >
-          <Input />
-        </Form.Item>
-        <Form.Item
-          label="Historique"
-          name="historique"
-          rules={[
-            {
-              required: true,
-              message: "Veuillez remplir le champs",
-            },
-            {
-              pattern: /^[a-zA-Z0-9]+$/,
-              message: "Name can only include letters and numbers.",
-            },
-          ]}
-        >
-          <TextArea />
-        </Form.Item>
-        <Form.Item
-          label="Description"
-          name="description"
-          rules={[
-            {
-              required: true,
-              message: "Veuillez remplir le champs",
-            },
-            {
-              pattern: /^[a-zA-Z0-9]+$/,
-              message: "Name can only include letters and numbers.",
-            },
-          ]}
-        >
-          <TextArea placeholder="" />
+          <Input h="58px" w="xs" shadow={3} />
         </Form.Item>
         <Form.Item
           label="Prix Enfant"
@@ -140,11 +140,11 @@ function GestionCircuit() {
           rules={[
             {
               required: true,
-              message: "Veuillez remplir le champs",
+              message: "Veuillez entrer une date valid",
             },
           ]}
         >
-          <Input />
+          <DatePicker  format={dateFormat} />
         </Form.Item>
         <Form.Item
           label="Date Fin"
@@ -152,28 +152,12 @@ function GestionCircuit() {
           rules={[
             {
               required: true,
-              message: "Veuillez remplir le champs",
+              message: "Veuillez entrer une date valid",
             },
           ]}
         >
-          <Input />
+          <DatePicker  format={dateFormat} />
         </Form.Item>
-        {/* <Form.Item
-          label="VideoName"
-          name="videoName"
-          rules={[
-            {
-              required: true,
-              message: "Veuillez remplir le champs",
-            },
-            {
-              pattern: /^[a-zA-Z0-9]+$/,
-              message: "Name can only include letters and numbers.",
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item> */}
         
         <Form.Item
           label="Geolocalisations"
@@ -195,16 +179,24 @@ function GestionCircuit() {
             required: true,
             message: "Veuillez remplir le champs",
           },
-          {
-            pattern: /^[a-zA-Z0-9]+$/,
-            message: "Name can only include letters and numbers.",
-          },
         ]}
       >
         <Input />
       </Form.Item>
-        <Form.Item name="image" getValueFromEvent={getFile}>
+      <Form.Item name="imagePrincipal" getValueFromEvent={getFile}>
           
+            <Upload
+            action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+            listType="picture"
+            maxCount={1}
+            beforeUpload={(file)=>{
+              return false
+            }}
+          >
+            <Button > Image Principal</Button>
+          </Upload>
+        </Form.Item>
+        <Form.Item name="autreImage" getValueFromEvent={getFile}>
             <Upload
             action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
             listType="picture"
@@ -215,8 +207,36 @@ function GestionCircuit() {
             }}
             
           >
-            <Button icon={<UploadOutlined />}>Upload image (Max:4)</Button>
+            <Button>Autre Image (3*)</Button>
           </Upload>
+        </Form.Item>
+        <Form.Item
+          label="Historique"
+          name="historique"
+          rules={[
+            {
+              required: true,
+              message: "Veuillez remplir le champs",
+            },
+          ]}
+        >
+          <textarea className="form-control"/>
+        </Form.Item>
+        <Form.Item
+          label="Description"
+          name="description"
+          rules={[
+            {
+              required: true,
+              message: "Veuillez remplir le champs",
+            },
+            {
+              pattern: /^[a-zA-Z0-9]+$/,
+              message: "Description can only include letters and numbers.",
+            },
+          ]}
+        >
+          <textarea className="form-control" />
         </Form.Item>
 
         <Form.Item
@@ -225,11 +245,11 @@ function GestionCircuit() {
             span: 16,
           }}
         >
-          <Button htmlType="submit">Submit</Button>
+          <Button className="bg-primary px-4" htmlType="submit">Ajouter</Button>
         </Form.Item>
       </Form>
-    </Flex>
+    </div>
   );
 }
 
-export default GestionCircuit;
+export default FormAdd;

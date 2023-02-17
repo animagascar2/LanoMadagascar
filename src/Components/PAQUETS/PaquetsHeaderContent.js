@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Box, Slider, Flex, Text, Input,Center } from "native-base";
 import {DatePicker} from 'antd'
+import moment from "moment";
 
 export default function PaquetsHeaderContent() {
   const [onChangeValue, setOnChangeValue] = React.useState(500);
@@ -63,7 +64,7 @@ export default function PaquetsHeaderContent() {
             <Text fontWeight="700" fontSize="18" lineHeight="22 px">
               Sélectionnez votre date :
             </Text>
-            <Input
+            {/* <Input
               w="xs"
               h="46 px"
               bg="#F7EEEE"
@@ -72,7 +73,24 @@ export default function PaquetsHeaderContent() {
               placeholderTextColor="rgba(27, 76, 116, 0.5)"
               placeholderFontWeight="400"
               placeholderFontSize="16 px"
-            />
+            /> */}
+            <DatePicker
+          defaultValue={moment(new Date(), 'DD MMM, YYYY')}
+          defaultPickerValue={moment(new Date(), 'DD MMM, YYYY')}
+          format={'DD MMM, YYYY'}
+          allowClear={false}
+          suffixIcon
+          style={{
+            height: "46px",
+            width: "xs",
+            borderRadius: "25px",
+            cursor: "pointer",
+            fontSize: "17px",
+            margin: "0px",
+            padding: "4px",
+            background:"#F7EEEE",
+          }}
+        />
           </Flex>
           <Flex direction="column" gap="50px">
             <Text fontWeight="700" fontSize="18" lineHeight="22 px">
