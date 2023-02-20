@@ -15,25 +15,34 @@ import { Link } from "react-router-dom";
 import PulseLoader from "react-spinners/PulseLoader";
 import { motion } from "framer-motion";
 import { mapActions, mapGetters } from "../../store/reex";
+import Conversion from "../Conversion";
 
 export default function ListeDestinations() {
   const [loadCircuit, setLoadCircuit] = useState(true);
-  const getCurrency = mapActions('circuit/getCurrency');
+  const [symbMoney , setSymbMoney] = useState('');
+  const [CurrencyValue, setCurrencyValue] = useState(0)
+  
   useEffect(() => {
     setTimeout(() => {
       setLoadCircuit(false);
+      getListPrincipal()
     }, 3000);
   }, []);
+  const MoneyCurrent = mapGetters('circuit/MoneyCurrent');
   const getListPrincipal = mapActions('circuit/getListPrincipal');
   const ListeCircuitsPrincipal = mapGetters('circuit/ListeCircuitsPrincipal');
+  const getConvertCurrency = mapActions('circuit/getConvertCurrency');
+
   useEffect(() => {
-    getListPrincipal()
-    console.log(ListeCircuitsPrincipal)
-}, []);
- const changeCurency = (value) => {
-  const v = {'from':'USD','to':Value}
-  getCurrency()
- }
+    setSymbMoney(MoneyCurrent.symb);
+    getConvertCurrency(MoneyCurrent.money)
+    .then((response) => {
+      const m = Object.values(response)
+      setCurrencyValue(m[1])
+  })
+}, [MoneyCurrent]);
+
+ 
 
   return (
     <Box>
@@ -46,45 +55,8 @@ export default function ListeDestinations() {
           gap={{
             lg: "350 px",
           }}
-        >
-          <Flex
-            direction="row"
-            ml="12px"
-            alignItems="center"
-            justifyContent="center"
-            gap="14px"
-          >
-            <Text
-              color="black"
-              fontWeight="700"
-              fontSize="18"
-              lineHeight="22px"
-              fontStyle="normal"
-            >
-              Conversion
-            </Text>
-
-            <Select
-              shadow={3}
-              placeholder="USD $"
-              placeholderTextColor="#1B4C74"
-              fontSize="14 px"
-              fontWeight="700"
-              maxWidth="150px"
-              lineHeight="17px"
-              _selectedItem={{
-                bg: "teal.600",
-                color: "#1B4C74",
-                endIcon: <CheckIcon size={5} />,
-              }}
-              mt="1"
-              onValueChange={(value) => changeCurency(value)}
-            >
-              <Select.Item label="USD $" value="USD" />
-              <Select.Item label="EURO €" value="EUR" />
-              <Select.Item label="Yuan  ¥" value="YUAN" />
-            </Select>
-          </Flex>
+        > 
+          <Conversion/>
           <Center mt="43 px">
             <Heading
               color=" rgba(0, 0, 0, 0.5)"
@@ -148,6 +120,14 @@ export default function ListeDestinations() {
                     >
                       {itm.nom} Tours
                     </Heading>
+                    <Heading
+                      fontWeight="800"
+                      fontSize="20"
+                      lineHeight="24 px"
+                      color="white"
+                    >
+                      {((itm.prixEnfant) * CurrencyValue).toFixed(2) +" "+symbMoney}
+                    </Heading> 
                     <Text
                       fontWeight="500"
                       fontSize="20"
@@ -641,7 +621,7 @@ export default function ListeDestinations() {
                 color="#D3D3D3"
                 style={{ textDecoration: "line-through" }}
               >
-                500
+                {((500) * CurrencyValue).toFixed(2) +" "+symbMoney}
               </Text>
               <Text
                 fontWeight="700"
@@ -649,7 +629,7 @@ export default function ListeDestinations() {
                 lineHeight="37 px"
                 color="black"
               >
-                300 $ /
+                {((300) * CurrencyValue).toFixed(2) +" "+symbMoney}/
               </Text>
               <Text
                 fontWeight="400"

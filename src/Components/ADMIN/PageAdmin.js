@@ -1,5 +1,7 @@
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
+import { Box } from 'native-base';
+
 import ListeCircuitPageAcuueil from './GESTIONCIRCUIT/ListeCircuitPageAcuueil';
 import ListeCircuit from './GESTIONCIRCUIT/ListeCircuit'; 
 
@@ -7,9 +9,9 @@ import AddCircuit from './GESTIONCIRCUIT/AddCircuit';
 
 function PageAdmin() {
   return (
-    <Tabs
+    <Box >
+      <Tabs
       defaultActiveKey="Liste"
-      id="fill-tab-example"
       className="mb-3"
       fill
     >
@@ -24,6 +26,7 @@ function PageAdmin() {
         <ListeCircuitPageAcuueil />
       </Tab>
     </Tabs>
+    </Box>
   );
 }
 

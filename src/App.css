@@ -36,3 +36,6 @@
     transform: rotate(360deg);
   }
 }
+.MuiInputBase-root{
+  border-radius: 50px !important;
+}

@@ -28,7 +28,7 @@ export default function FooterLanoContent() {
             placeholder="VOTRE EMAIL"
           />
         </Box>
-        <img src={require("../../Image/footerBackground.png")} alt="" />
+        <img src={require("../../Image/footerBackground.png")} alt="" width="auto" />
       </Box>
       </div>
   );

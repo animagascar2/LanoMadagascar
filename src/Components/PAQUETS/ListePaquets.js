@@ -5,59 +5,39 @@ import {
   Heading,
   Flex,
   Text,
-  Center,
   Button,
-  Input,
 } from "native-base";
-import { Avatar, Card } from "antd";
 import { styles } from "../../styles";
 import { mapActions, mapGetters } from '../../store/reex';
+import Conversion from "../Conversion";
 
 export default function ListePaquets() {
   const getList = mapActions('circuit/getList');
   const ListeCircuits = mapGetters('circuit/ListeCircuits');
+  const MoneyCurrent = mapGetters('circuit/MoneyCurrent');
+  const getConvertCurrency = mapActions('circuit/getConvertCurrency');
+  const [symbMoney , setSymbMoney] = useState('');
+  const [CurrencyValue, setCurrencyValue] = useState(0)
+
+
   useEffect(() => {
     getList()
 }, []);
+useEffect(() => {
+  setSymbMoney(MoneyCurrent.symb);
+  getConvertCurrency(MoneyCurrent.money)
+  .then((response) => {
+    const m = Object.values(response)
+    setCurrencyValue(m[1])
+})
+}, [MoneyCurrent]);
+
 
   return (
     
     <Flex p='6%'>
-      <Flex
-        direction="row"
-        alignItems="center"
-        gap="14px"
-        pb='4%'
-      >
-        <div data-aos="slide-up">
-        <Text
-          color="black"
-          fontWeight="700"
-          fontSize="18"
-          lineHeight="22px"
-          fontStyle="normal"
-        >
-          Conversion
-        </Text>
-        </div>
-        <div data-aos="slide-up">
-        <Input
-          w="114px"
-          h="29px"
-          shadow={3}
-          placeholderTextColor="#1B4C74"
-          fontSize="14 px"
-          fontWeight="700"
-          lineHeight="17px"
-          InputRightElement={
-            <Box mr="2">
-              <img src={require("../../Image/SelectIconBlack.png")} alt=""  />
-            </Box>
-          }
-          placeholder="USD $"
-        />
-        </div>
-      </Flex>
+      <Conversion />
+
       <Box mb="70 px">
         <Box>
           <Flex
@@ -67,7 +47,7 @@ export default function ListePaquets() {
             gap="30px"
           >
             {ListeCircuits.map((itm, idx) => {
-              return <div data-aos="slide-up">
+              return <div data-aos="slide-up" key={idx}>
               <Box
               style={{
                 width: 400,
@@ -112,7 +92,7 @@ export default function ListePaquets() {
                       fontSize="18"
                       lineHeight="22 px"
                     >
-                      {itm.prixAdulte }$
+                      {((itm.prixAdulte) * CurrencyValue).toFixed(2) +" "+symbMoney}
                     </Text>
                   </Box>
                 </Flex>

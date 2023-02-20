@@ -1,12 +1,18 @@
 import axios from 'axios'
-export function getCurrency ({ commit, getState }, v) {
+export function getConvertCurrency ({ commit, getState }, v) {
+
     return new Promise((resolve, reject) => {
-        axios.get('https://api.fastforex.io/convert?from=USD&to=EUR&amount=50&api_key=cce299f959-06bef9d9f9-rq8822')
+        axios.get('https://api.fastforex.io/convert?from=USD&to='+v+'&amount=1&api_key=cce299f959-06bef9d9f9-rq8822')
         .then((response) => {
-            console.log(response.data)
+            const result = response.data.result
+            resolve(result); 
         })
     })
 }
+export function setMoneyCurrent ({ commit }, v) {
+    commit('set_MoneyCurrent', v)
+}
+
 export function getList ({ commit, getState }, v) {
     return new Promise((resolve, reject) => {
         axios.get('http://localhost/LANO/Liste.php')
