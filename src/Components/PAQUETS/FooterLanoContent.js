@@ -5,9 +5,10 @@ import { styles } from "../../styles";
 export default function FooterLanoContent() {
   const fn = "Roboto !important";
   return (
-    <div data-aos="slide-up">
+    <Box>
       
         <Box position="absolute" my={{base:"35px",md:"90px",lg:"167px"}} mx={{base:"4px",md:"80px",lg:"80px"}}>
+        <div data-aos="slide-up">
           <Input
             width={{base:"350px",md:"729px",lg:"729px"}}
             height={{base:"40px",md:"75px",lg:"80px"}}
@@ -26,9 +27,11 @@ export default function FooterLanoContent() {
             }
             placeholder="VOTRE EMAIL"
           />
+          </div>
         </Box>
-        <img src={require("../../Image/footerBackground.png")} alt="" />
-        </div>
+            <img src={require("../../Image/footerBackground.png")} alt="" />
+        
+        </Box>
   );
 }
 

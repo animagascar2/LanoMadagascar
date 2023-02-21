@@ -6,26 +6,45 @@ import ListeCircuitPageAcuueil from './GESTIONCIRCUIT/ListeCircuitPageAcuueil';
 import ListeCircuit from './GESTIONCIRCUIT/ListeCircuit'; 
 
 import AddCircuit from './GESTIONCIRCUIT/AddCircuit';
+import GestionAdmin from './GESTIONADMIN/GestionAdmin';
+import GestionUser from './GESTIONUSER/GestionUser'
 
 function PageAdmin() {
   return (
     <Box >
       <Tabs
-      defaultActiveKey="Liste"
+      defaultActiveKey="circuit"
       className="mb-3"
       fill
     >
-      <Tab eventKey="insert" title="Insertion nouveau Circuit">
-        <AddCircuit />
+      <Tab eventKey="circuit" title="Gestion Circuit">
+          <Tabs
+          defaultActiveKey="Liste"
+          className="mb-3"
+          fill
+        >
+          <Tab eventKey="insert" title="Insertion nouveau Circuit">
+            <AddCircuit />
+          </Tab>
+          <Tab eventKey="Liste" title="Liste Circuit">
+            
+            <ListeCircuit />
+          </Tab>
+          <Tab eventKey="Page d'accueil" title="Page d'accueil">
+            <ListeCircuitPageAcuueil />
+          </Tab>
+        </Tabs>
       </Tab>
-      <Tab eventKey="Liste" title="Liste Circuit">
+      <Tab eventKey="admin" title="Gestion Admin">
         
-        <ListeCircuit />
+        <GestionAdmin />
       </Tab>
-      <Tab eventKey="Page d'accueil" title="Page d'accueil">
-        <ListeCircuitPageAcuueil />
+      <Tab eventKey="user" title="Gestion User">
+        
+        <GestionUser />
       </Tab>
     </Tabs>
+
     </Box>
   );
 }

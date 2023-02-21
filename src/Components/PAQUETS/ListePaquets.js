@@ -11,18 +11,12 @@ import { styles } from "../../styles";
 import { mapActions, mapGetters } from '../../store/reex';
 import Conversion from "../Conversion";
 
-export default function ListePaquets() {
-  const getList = mapActions('circuit/getList');
-  const ListeCircuits = mapGetters('circuit/ListeCircuits');
+export default function ListePaquets(props) {
   const MoneyCurrent = mapGetters('circuit/MoneyCurrent');
   const getConvertCurrency = mapActions('circuit/getConvertCurrency');
   const [symbMoney , setSymbMoney] = useState('');
   const [CurrencyValue, setCurrencyValue] = useState(0)
 
-
-  useEffect(() => {
-    getList()
-}, []);
 useEffect(() => {
   setSymbMoney(MoneyCurrent.symb);
   getConvertCurrency(MoneyCurrent.money)
@@ -46,7 +40,7 @@ useEffect(() => {
             justifyContent="space-between"
             gap="30px"
           >
-            {ListeCircuits.map((itm, idx) => {
+            { (props.data).length != 0 ?(props.data).map((itm, idx) => {
               return <div data-aos="slide-up" key={idx}>
               <Box
               style={{
@@ -125,7 +119,9 @@ useEffect(() => {
               
             </Box>
             </div>
-            })}
+            })
+            :<></>
+          }
             
           </Flex>
         </Box>

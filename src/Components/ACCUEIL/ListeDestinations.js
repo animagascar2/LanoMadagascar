@@ -102,13 +102,12 @@ export default function ListeDestinations() {
                 whileHover={{ scale: 1.2, zIndex: 300 }}
                 key={id}
               >
-                <Box width='323.31px'>
+                <Box width='323.31px' height="295.64px" rounded='lg' borderWidth='1'>
                   <Link to="/DetailsDestination" style={styles.textDeco}>
+
                     <img
                       src={"http://localhost/LANO/ImagesUpload/"+itm.imageP}
                       alt=""
-                      width="323.31px "
-                      height="295.64px"
                     />
                   </Link>
                   <Box position="absolute" ml="33.39 px" mt="226.24 px">
@@ -148,12 +147,13 @@ export default function ListeDestinations() {
                 whileHover={{ scale: 1.2, zIndex: 300 }}
               >
                 <Box>
+                  <Box width="323.31px "
+                    height="295.64px">
                   <img
                     src={require("../../Image/C2.png")}
                     alt=""
-                    width="323.31px "
-                    height="295.64px"
                   />
+                  </Box>
                   <Box position="absolute" ml="33.39 px" mt="226.24 px">
                     <Heading
                       fontWeight="800"
