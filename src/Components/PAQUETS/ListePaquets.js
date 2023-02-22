@@ -10,6 +10,11 @@ import {
 import { styles } from "../../styles";
 import { mapActions, mapGetters } from '../../store/reex';
 import Conversion from "../Conversion";
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { CardActionArea } from '@mui/material';
 
 export default function ListePaquets(props) {
   const MoneyCurrent = mapGetters('circuit/MoneyCurrent');
@@ -30,7 +35,9 @@ useEffect(() => {
   return (
     
     <Flex p='6%'>
+      <Box mb='10'>
       <Conversion />
+      </Box>
 
       <Box mb="70 px">
         <Box>
@@ -40,9 +47,9 @@ useEffect(() => {
             justifyContent="space-between"
             gap="30px"
           >
-            { (props.data).length != 0 ?(props.data).map((itm, idx) => {
+            {(props.data).map((itm, idx) => {
               return <div data-aos="slide-up" key={idx}>
-              <Box
+              {/* <Box
               style={{
                 width: 400,
                 border:'1px',
@@ -117,10 +124,53 @@ useEffect(() => {
               </Button>
               </Box>
               
-            </Box>
+            </Box> */}
+              <Card sx={{ minWidth: 380 }}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="230"
+          image={"http://localhost/LANO/ImagesUpload/"+itm.imageP}
+          alt="green iguana"
+        />
+        <CardContent>
+        <Flex direction="row" justifyContent='space-between' zIndex={30} >
+          <Typography gutterBottom variant="h5" component="div" fontWeight="800"
+                      fontSize="12"
+                      lineHeight="22 px"
+                      color="#1B4C74">
+            Madagascar
+          </Typography>
+          <Typography gutterBottom variant="h5" component="div" color="#D3D3D3"
+                      fontWeight="800"
+                      fontSize="18"
+                      lineHeight="22 px">
+          {((itm.prixAdulte) * CurrencyValue).toFixed(2) +" "+symbMoney}
+          </Typography>
+          </Flex>
+          <Divider  mt="26 px" mb="20 px" />
+          <Flex direction="row" gap="10 px" mt="10 px" alignContent='center'>
+                      <img
+                        alt=""
+                        src={require("../../Image/iconLocalisation.png") }
+                        width='20px'
+                        height='30px'
+                      />
+          <Typography gutterBottom variant="h5" component="div" fontWeight="800"
+                        fontSize="18"
+                        lineHeight="22 px"
+                        color="#1B4C74">
+            {itm.nom}
+          </Typography>
+          </Flex>
+          <Typography variant="body2" color="text.secondary">
+          {itm.descriptionC}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+            </Card>
             </div>
             })
-            :<></>
           }
             
           </Flex>

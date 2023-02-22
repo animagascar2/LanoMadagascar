@@ -35,7 +35,7 @@ export function postCircuit ({ commit, getState }, v) {
         axios
             .post('http://localhost/LANO/Add.php',v)
             .then((response) => {
-                console.log(response)
+                console.log(response.data)
                 resolve(response.data);
             })
     })

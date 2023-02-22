@@ -9,17 +9,6 @@ import axios from 'axios';
 
 
 export default function Accueil(props) {
-  
-  // const [users, setUsers] = useState([]);
-  // useEffect(() => {
-  //     getUsers();
-  // }, []);
-  // function getUsers() {
-  //     axios.get('http://localhost/LANO/').then(function(response) {
-  //         console.log(response.data);
-  //         setUsers(response.data);
-  //     });
-  // }
 
   return (
     <Box>

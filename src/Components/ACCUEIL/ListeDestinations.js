@@ -16,6 +16,11 @@ import PulseLoader from "react-spinners/PulseLoader";
 import { motion } from "framer-motion";
 import { mapActions, mapGetters } from "../../store/reex";
 import Conversion from "../Conversion";
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { CardActionArea } from '@mui/material';
 
 export default function ListeDestinations() {
   const [loadCircuit, setLoadCircuit] = useState(true);
@@ -95,52 +100,48 @@ export default function ListeDestinations() {
               alignContent="center"
               justifyContent="center"
             >
-              {ListeCircuitsPrincipal.map((itm, id) => {
-                return <motion.div
+              {ListeCircuitsPrincipal.map((itm, id) => <motion.div
                 animate={{ scale: 1 }}
                 initial={{ scale: 0 }}
                 whileHover={{ scale: 1.2, zIndex: 300 }}
                 key={id}
               >
-                <Box width='323.31px' height="295.64px" rounded='lg' borderWidth='1'>
-                  <Link to="/DetailsDestination" style={styles.textDeco}>
-
-                    <img
-                      src={"http://localhost/LANO/ImagesUpload/"+itm.imageP}
-                      alt=""
-                    />
+                  <Link to={`/${itm.idCircuit}`} style={styles.textDeco}>
+                      <Card sx={{ minWidth: 430 }}>
+            <CardActionArea>
+              <CardMedia
+                component="img"
+                height="280"
+                image={"http://localhost/LANO/ImagesUpload/"+itm.imageP}
+                alt="green iguana"
+              />
+              {/* <CardContent> */}
+                    <Box  ml="30 px" mt="-100.24 px">
+                          <Heading
+                            fontWeight="900"
+                            fontSize="20"
+                            lineHeight="24 px"
+                            color="white"
+                          >
+                            {itm.nom} Tours
+                          </Heading>
+                          <Text
+                            fontWeight="600"
+                            fontSize="20"
+                            lineHeight="24 px"
+                            color="white"
+                          >
+                            {itm.dureeCircuit} Jours
+                          </Text>
+                        </Box>
+              {/* </CardContent> */}
+            </CardActionArea>
+                      </Card>
                   </Link>
-                  <Box position="absolute" ml="33.39 px" mt="226.24 px">
-                    <Heading
-                      fontWeight="800"
-                      fontSize="20"
-                      lineHeight="24 px"
-                      color="white"
-                    >
-                      {itm.nom} Tours
-                    </Heading>
-                    <Heading
-                      fontWeight="800"
-                      fontSize="20"
-                      lineHeight="24 px"
-                      color="white"
-                    >
-                      {((itm.prixEnfant) * CurrencyValue).toFixed(2) +" "+symbMoney}
-                    </Heading> 
-                    <Text
-                      fontWeight="500"
-                      fontSize="20"
-                      lineHeight="24 px"
-                      color="white"
-                    >
-                      {itm.dureeCircuit} Jours
-                    </Text>
-                  </Box>
-                </Box>
-              </motion.div>
-              })}
+              </motion.div>)}
               
-              <motion.div
+              
+              {/* <motion.div
                 animate={{ scale: 1 }}
                 initial={{ scale: 0 }}
                 transition={{ ease: "easeOut" }}
@@ -503,7 +504,7 @@ export default function ListeDestinations() {
                     </Text>
                   </Box>
                 </Box>
-              </motion.div>
+              </motion.div> */}
             </Flex>
           )}
         </Center>

@@ -25,58 +25,65 @@ export default function PaquetsHeaderContent() {
     getList();
   }, []);
 
-  var r1 = [];
-  var r2 = [];
-  var r3 = [];
-  var r4 = [];
+  var r1 = []
 
   useEffect(() => {
+    setData([])
     ListeCircuits.map((item, id) => {
-      if(valueDateTest =="" && onChangeslide ==0 && item.nom == circuitName){
-        setData([item]);
-      }else{
-        setValueDate(null)
-        setValueDateTest("")
-        setOnChangeslide(0)
+      if (item.nom == circuitName && valueDateTest == "" &&  onChangeslide == 0  ){
+        setData([item])
+      }
+       if (item.nom == circuitName && item.dateDebut == valueDateTest && onChangeslide == 0  ){
+        setData([item])
+      }
+       if (item.nom == circuitName && item.prixAdulte ==  onChangeslide && valueDateTest == ""  ){
+        setData([item])
+      }
+       if (item.nom == circuitName && item.dateDebut == valueDateTest && item.prixAdulte == onChangeslide ){
+        setData([item])
       }
     });
   }, [circuitName]);
 
   useEffect(() => {
+    setData([])
     ListeCircuits.map((item, id) => {
-      if (item.dateDebut == valueDateTest) {
-        r3.push(item);
-        setData(r3);
+      if (item.dateDebut == valueDateTest && circuitName == "" && onChangeslide == 0){
+        r1.push(item)
+        setData([...r1])
+      }
+      if (item.dateDebut == valueDateTest && item.nom == circuitName && onChangeslide == 0  ){
+        setData([item])
+      }
+       if (item.dateDebut == valueDateTest && item.prixAdulte ==  onChangeslide && circuitName == ""){
+        r1.push(item)
+        setData([...r1])
+      }
+      if (item.nom == circuitName && item.dateDebut == valueDateTest && item.prixAdulte == onChangeslide ){
+        setData([item])
       }
     });
   }, [valueDateTest]);
 
   useEffect(() => {
+    setData([])
     ListeCircuits.map((item, id) => {
-      if (item.prixAdulte == onChangeslide) {
-        r4.push(item);
-        setData(r4);
+      if ( item.prixAdulte ==  onChangeslide && circuitName == "" && valueDateTest == "" ){
+        r1.push(item)
+        setData([...r1])
+      }
+      if (item.prixAdulte ==  onChangeslide && item.nom == circuitName && valueDateTest == ""){
+        setData([item])
+      }
+      if (item.prixAdulte == onChangeslide && item.dateDebut == valueDateTest && circuitName == "" ){
+        r1.push(item)
+        setData([...r1])
+      }
+      if ( item.prixAdulte == onChangeslide && item.nom == circuitName && item.dateDebut == valueDateTest){
+        setData([item])
       }
     });
   }, [onChangeslide]);
-
-  useEffect(() => {
-
-    ListeCircuits.map((item, id) => {
-      if (item.nom == circuitName && item.dateDebut == valueDateTest && item.prixAdulte == onChangeslide ){
-        r1.push(item)
-        setData(r1)
-      }
-      if (item.nom == circuitName && item.dateDebut == valueDateTest ){
-        r1.push(item)
-        setData(r1)
-      }
-      if (item.dateDebut == valueDateTest && item.prixAdulte == onChangeslide ){
-        r1.push(item)
-        setData(r1)
-      }
-      })
-    }, [circuitName,valueDateTest,onChangeslide]);
 
   return (
     <>
@@ -212,8 +219,10 @@ export default function PaquetsHeaderContent() {
           </Flex>
         </Box>
       </div>
+      
 
-      <ListePaquets data={data} />
+      <> {(data.length>0)?<ListePaquets data={data} />:<ListePaquets data={ListeCircuits} />} 
+      </>
     </>
   );
 }

@@ -1,19 +1,52 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Box, Flex, Text, Input, Button, Heading,Center } from "native-base";
+import { Box, Flex, Text, Input, Button, Heading,Center,Image,AspectRatio } from "native-base";
 import { Rate } from "antd";
 import { styles } from "../../styles";
 import { ColorRing } from 'react-loader-spinner'
 import { motion } from "framer-motion";
-import Ratio from 'react-bootstrap/Ratio';
+import { mapActions, mapGetters } from '../../store/reex';
+import {
+  useParams,
+} from "react-router-dom";
+import Conversion from "../Conversion";
+import ReactPlayer from 'react-player'
 
-export default function ContentDetails() {
+export default function ContentDetails(props) {
+  const getList = mapActions("circuit/getList");
+  const ListeCircuits = mapGetters("circuit/ListeCircuits");
+  const getConvertCurrency = mapActions('circuit/getConvertCurrency');
   const [loadCircuit, setLoadCircuit] = useState(true);
+  const [circuit,setCircuit] = useState({})
+  const { id }= useParams();
+  const MoneyCurrent = mapGetters('circuit/MoneyCurrent');
+  const [symbMoney , setSymbMoney] = useState('');
+  const [CurrencyValue, setCurrencyValue] = useState(0);
+
   useEffect(() => {
+    getList()
+    .then((response) => {
+      response.map((itm, id) =>{
+        if(itm.idCircuit = id){
+          setCircuit(itm)
+        }
+    })
+    })
     setTimeout(() => {
       setLoadCircuit(false);
     }, 2000);
+    
+    console.log(circuit)
   }, []);
+
+  useEffect(() => {
+    setSymbMoney(MoneyCurrent.symb);
+    getConvertCurrency(MoneyCurrent.money)
+    .then((response) => {
+      const m = Object.values(response)
+      setCurrencyValue(m[1])
+  })
+}, [MoneyCurrent]);
   return (
     <Flex p="8" mt="80px">
       <Flex
@@ -30,7 +63,7 @@ export default function ContentDetails() {
             lineHeight="61px"
             fontStyle="normal"
           >
-            Mahajanga Tours
+            {circuit.nom} Tours
           </Heading>
           <Heading
             color="#717171"
@@ -39,40 +72,12 @@ export default function ContentDetails() {
             lineHeight="37px"
             fontStyle="normal"
           >
-            600 $
+            {((circuit.prixAdulte) * CurrencyValue).toFixed(2) + " " + symbMoney}
           </Heading>
         </Box>
-        <Flex
-          direction="row"
-          alignItems="center"
-          justifyContent="center"
-          gap="14px"
-        >
-          <Text
-            color="black"
-            fontWeight="700"
-            fontSize="18"
-            lineHeight="22px"
-            fontStyle="normal"
-          >
-            Conversion
-          </Text>
-          <Input
-            w="114px"
-            h="29px"
-            shadow={3}
-            placeholderTextColor="#1B4C74"
-            fontSize="14 px"
-            fontWeight="700"
-            lineHeight="17px"
-            InputRightElement={
-              <Box mr="2">
-                <img src={require("../../Image/SelectIconBlack.png")} alt="" />
-              </Box>
-            }
-            placeholder="USD $"
-          />
-        </Flex>
+        <Box>
+          <Conversion/>
+        </Box>
       </Flex>
       <Flex
         my="2"
@@ -82,14 +87,11 @@ export default function ContentDetails() {
         gap="20px"
       >
         <div class="item" data-aos="fade-right">
-        <Box w={{ base: "100%", md: "100%", lg: "100%" }}>
+        <Box w={{ base: "100%", md: "100%", lg: "100%" }} >
           
-        <div style={{ width: 700, height: '700' }}>
-      <Ratio aspectRatio="4x3">
-        <iframe title="embedsPage" className="embed-responsive-item" src="https://www.youtube.com/embed/v64KOxKVLVg"
-        allowfullscreen></iframe>
-      </Ratio>
-    </div>
+        {/* <div style={{ width: 700, height: '700' }}> */}
+        <ReactPlayer url='https://www.youtube.com/watch?v=qIpaX7L4y0Y' playing="true" />
+    {/* </div> */}
           
         </Box>
         </div>
@@ -111,13 +113,12 @@ export default function ContentDetails() {
           <Flex
             w={{ base: "100%", md: "48%", lg: "48%" }}
             direction="column"
-            gap="20px"
             justifyContent="space-between"
+            gap ='20px'
           >
             <Flex
               direction="row"
               justifyContent={{ base: "center", lg: "space-between" }}
-              gap="20px"
               flexWrap="wrap"
             >
               <motion.div
@@ -126,7 +127,19 @@ export default function ContentDetails() {
                 transition={{ ease: "easeOut", duration: 2 }}
                 whileHover={{ scale: 1.2, zIndex: 300 }}
               >
-                <img src={require("../../Image/MTPhotos2.png")} alt="" />
+              <AspectRatio ratio={{
+              base: 3/ 4,
+              md: 9 / 10,
+              lg: 6/4
+            }} height={{
+              base: 150,
+              md: 400,
+              lg:200
+            }}>
+                <Image resizeMode="cover" borderRadius={20}  source={{
+                uri: 'http://localhost/LANO/ImagesUpload/'+circuit.imageP
+              }} alt="Picture of a Flower" />
+              </AspectRatio>
               </motion.div>
               <motion.div
                 animate={{ scale: 1 }}
@@ -134,7 +147,19 @@ export default function ContentDetails() {
                 transition={{ ease: "easeOut", duration: 2 }}
                 whileHover={{ scale: 1.2, zIndex: 300 }}
               >
-                <img src={require("../../Image/MTPhotos3.png")} alt="" />
+                <AspectRatio ratio={{
+              base: 3/ 4,
+              md: 9 / 10,
+              lg: 6/4
+            }} height={{
+              base: 150,
+              md: 400,
+              lg:200
+            }}>
+                <Image resizeMode="cover" borderRadius={20}  source={{
+                uri: 'http://localhost/LANO/ImagesUpload/'+circuit.image1
+              }} alt="Picture of a Flower" />
+              </AspectRatio>
               </motion.div>
             </Flex>
             <Flex
@@ -149,7 +174,19 @@ export default function ContentDetails() {
                 transition={{ ease: "easeOut", duration: 2 }}
                 whileHover={{ scale: 1.2, zIndex: 300 }}
               >
-                <img src={require("../../Image/MTPhotos4.png")} alt="" />
+                <AspectRatio ratio={{
+              base: 3/ 4,
+              md: 9 / 10,
+              lg: 6/4
+            }} height={{
+              base: 150,
+              md: 400,
+              lg:200
+            }}>
+                <Image resizeMode="cover" borderRadius={20}  source={{
+                uri: 'http://localhost/LANO/ImagesUpload/'+circuit.image2
+              }} alt="Picture of a Flower" />
+              </AspectRatio>
               </motion.div>
               <motion.div
                 animate={{ scale: 1 }}
@@ -157,7 +194,19 @@ export default function ContentDetails() {
                 transition={{ ease: "easeOut", duration: 2 }}
                 whileHover={{ scale: 1.2, zIndex: 300 }}
               >
-                <img src={require("../../Image/MTPhotos5.png")} alt="" />
+                <AspectRatio ratio={{
+              base: 3/ 4,
+              md: 9 / 10,
+              lg: 6/4
+            }} height={{
+              base: 150,
+              md: 400,
+              lg:200
+            }}>
+                <Image resizeMode="cover" borderRadius={20}  source={{
+                uri: 'http://localhost/LANO/ImagesUpload/'+circuit.image3
+              }} alt="Picture of a Flower" />
+              </AspectRatio>
               </motion.div>
             </Flex>
           </Flex>
@@ -205,9 +254,7 @@ export default function ContentDetails() {
                 fontStyle="normal"
                 mb="20px"
               >
-                Lorem ipsum dolor sit amet consectetur. Nulla venenatis id morbi
-                massa mauris enim id urna nibh. Dui nisl ut ornare nulla nibh
-                id. Consectetur mattis nunc adipiscing mauris.
+                {circuit.descriptionC}
               </Text>
               <Text
                 color="black"
@@ -279,11 +326,9 @@ export default function ContentDetails() {
                 fontStyle="normal"
                 mb="20px"
               >
-                Lorem ipsum dolor sit amet consectetur. Nulla venenatis id morbi
-                massa mauris enim id urna nibh. Dui nisl ut ornare nulla nibh
-                id. Consectetur mattis nunc adipiscing mauris.
+                {circuit.historique}
               </Text>
-              <Text
+              {/* <Text
                 color="black"
                 fontWeight="400"
                 fontSize="14 px"
@@ -305,7 +350,7 @@ export default function ContentDetails() {
                 Ornare auctor consectetur praesent lectus dolor ac. Enim enim
                 senectus est vel risus elementum laoreet sed. Tincidunt
                 habitasse vitae phasellus cum vel felis est.
-              </Text>
+              </Text> */}
             </Box>
           </Flex>
         </div>
