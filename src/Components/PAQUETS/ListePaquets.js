@@ -125,7 +125,7 @@ useEffect(() => {
               </Box>
               
             </Box> */}
-              <Card sx={{ minWidth: 380 }}>
+              <Card sx={{ maxWidth: 380 }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -163,7 +163,7 @@ useEffect(() => {
             {itm.nom}
           </Typography>
           </Flex>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" color="text.secondary"  textAlign='justify'>
           {itm.descriptionC}
           </Typography>
         </CardContent>

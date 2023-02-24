@@ -13,7 +13,7 @@ export default function Accueil(props) {
   return (
     <Box>
       
-        <HeadERLano/>
+        <HeadERLano active ={props.active}/>
         <HeaderContent />
         <ListeDestinations/>
         

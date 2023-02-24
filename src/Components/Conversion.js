@@ -34,7 +34,7 @@ export default function Conversion(props) {
           lineHeight="22px"
           fontStyle="normal"
         >
-          Conversion
+          Devise
         </Text>
 
         <Select

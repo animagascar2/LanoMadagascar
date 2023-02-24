@@ -1,0 +1,16 @@
+ul.mb-3.nav.nav-tabs.nav-fill {
+    width: 500px;
+    border: none;
+}
+#tableau.nav-link.active{
+    border: none ;
+    background: #497fc1 !important;
+    border-radius: 0px !important;
+    font-weight: 800;
+    color: white !important;
+}
+.modal-content {
+    border-radius: '0px !important';
+    width: '100x !important';
+}
+

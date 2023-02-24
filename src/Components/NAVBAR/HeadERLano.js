@@ -38,7 +38,7 @@ export default function HeadERLano(props) {
                       height="22px"
                       fontWeight="800"
                     >
-                      Acceuil
+                      Accueil
                     </Text>
                     <img
                       src={require("../../Image/menuActive.png")}

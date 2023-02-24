@@ -18,7 +18,7 @@ export default function ContentDetails(props) {
   const getConvertCurrency = mapActions('circuit/getConvertCurrency');
   const [loadCircuit, setLoadCircuit] = useState(true);
   const [circuit,setCircuit] = useState({})
-  const { id }= useParams();
+  const params= useParams();
   const MoneyCurrent = mapGetters('circuit/MoneyCurrent');
   const [symbMoney , setSymbMoney] = useState('');
   const [CurrencyValue, setCurrencyValue] = useState(0);
@@ -27,10 +27,10 @@ export default function ContentDetails(props) {
     getList()
     .then((response) => {
       response.map((itm, id) =>{
-        if(itm.idCircuit = id){
+        if(itm.nom = params.nom){
           setCircuit(itm)
         }
-    })
+    }) 
     })
     setTimeout(() => {
       setLoadCircuit(false);
@@ -89,9 +89,7 @@ export default function ContentDetails(props) {
         <div class="item" data-aos="fade-right">
         <Box w={{ base: "100%", md: "100%", lg: "100%" }} >
           
-        {/* <div style={{ width: 700, height: '700' }}> */}
-        <ReactPlayer url='https://www.youtube.com/watch?v=qIpaX7L4y0Y' playing="true" />
-    {/* </div> */}
+        <ReactPlayer url={circuit.lienYoutube} />
           
         </Box>
         </div>
@@ -103,7 +101,6 @@ export default function ContentDetails(props) {
                 height="80"
                 width="80"
                 ariaLabel="blocks-loading"
-                wrapperStyle={{}}
                 wrapperClass="blocks-wrapper"
                 colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
               />
@@ -120,6 +117,7 @@ export default function ContentDetails(props) {
               direction="row"
               justifyContent={{ base: "center", lg: "space-between" }}
               flexWrap="wrap"
+              gap="20px"
             >
               <motion.div
                 animate={{ scale: 1 }}
@@ -128,7 +126,7 @@ export default function ContentDetails(props) {
                 whileHover={{ scale: 1.2, zIndex: 300 }}
               >
               <AspectRatio ratio={{
-              base: 3/ 4,
+              base: 6/ 3,
               md: 9 / 10,
               lg: 6/4
             }} height={{
@@ -148,7 +146,7 @@ export default function ContentDetails(props) {
                 whileHover={{ scale: 1.2, zIndex: 300 }}
               >
                 <AspectRatio ratio={{
-              base: 3/ 4,
+              base: 6/ 3,
               md: 9 / 10,
               lg: 6/4
             }} height={{
@@ -175,7 +173,7 @@ export default function ContentDetails(props) {
                 whileHover={{ scale: 1.2, zIndex: 300 }}
               >
                 <AspectRatio ratio={{
-              base: 3/ 4,
+              base: 6/ 3,
               md: 9 / 10,
               lg: 6/4
             }} height={{
@@ -195,7 +193,7 @@ export default function ContentDetails(props) {
                 whileHover={{ scale: 1.2, zIndex: 300 }}
               >
                 <AspectRatio ratio={{
-              base: 3/ 4,
+              base: 6/ 3,
               md: 9 / 10,
               lg: 6/4
             }} height={{

@@ -5,9 +5,6 @@ import {
   Text,
   Flex,
   Button,
-  Input,
-  CheckIcon,
-  Select,
 } from "native-base";
 import React, { useEffect, useState } from "react";
 import { styles } from "../../styles";
@@ -100,92 +97,26 @@ export default function ListeDestinations() {
               alignContent="center"
               justifyContent="center"
             >
-              {ListeCircuitsPrincipal.map((itm, id) => <motion.div
+              {ListeCircuitsPrincipal.map((itm, id) =>
+               <motion.div
                 animate={{ scale: 1 }}
                 initial={{ scale: 0 }}
                 whileHover={{ scale: 1.2, zIndex: 300 }}
                 key={id}
               >
-                  <Link to={`/${itm.idCircuit}`} style={styles.textDeco}>
-                      <Card sx={{ minWidth: 430 }}>
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                height="280"
-                image={"http://localhost/LANO/ImagesUpload/"+itm.imageP}
-                alt="green iguana"
-              />
-              {/* <CardContent> */}
-                    <Box  ml="30 px" mt="-100.24 px">
-                          <Heading
-                            fontWeight="900"
-                            fontSize="20"
-                            lineHeight="24 px"
-                            color="white"
-                          >
-                            {itm.nom} Tours
-                          </Heading>
-                          <Text
-                            fontWeight="600"
-                            fontSize="20"
-                            lineHeight="24 px"
-                            color="white"
-                          >
-                            {itm.dureeCircuit} Jours
-                          </Text>
-                        </Box>
-              {/* </CardContent> */}
-            </CardActionArea>
-                      </Card>
-                  </Link>
-              </motion.div>)}
-              
-              
-              {/* <motion.div
+                  <Link to={`/${itm.nom}`} style={styles.textDeco}>
+                  <motion.div
                 animate={{ scale: 1 }}
                 initial={{ scale: 0 }}
                 transition={{ ease: "easeOut" }}
                 whileHover={{ scale: 1.2, zIndex: 300 }}
               >
-                <Box>
-                  <Box width="323.31px "
-                    height="295.64px">
+                <Box >
                   <img
-                    src={require("../../Image/C2.png")}
-                    alt=""
-                  />
-                  </Box>
-                  <Box position="absolute" ml="33.39 px" mt="226.24 px">
-                    <Heading
-                      fontWeight="800"
-                      fontSize="20"
-                      lineHeight="24 px"
-                      color="white"
-                    >
-                      Mahajanga Tours
-                    </Heading>
-                    <Text
-                      fontWeight="500"
-                      fontSize="20"
-                      lineHeight="24 px"
-                      color="white"
-                    >
-                      3 Jours
-                    </Text>
-                  </Box>
-                </Box>
-              </motion.div>
-              <motion.div
-                animate={{ scale: 1 }}
-                initial={{ scale: 0 }}
-                transition={{ ease: "easeOut" }}
-                whileHover={{ scale: 1.2, zIndex: 300 }}
-              >
-                <Box>
-                  <img
-                    src={require("../../Image/C3.png")}
+                    src={"http://localhost/LANO/ImagesUpload/"+itm.imageP}
                     alt=""
                     width="323.31px "
+                    style={{borderRadius:'20px'}}
                     height="295.64px"
                   />
                   <Box position="absolute" ml="33.39 px" mt="226.24 px">
@@ -208,303 +139,9 @@ export default function ListeDestinations() {
                   </Box>
                 </Box>
               </motion.div>
-              <motion.div
-                animate={{ scale: 1 }}
-                initial={{ scale: 0 }}
-                transition={{ ease: "easeOut" }}
-                whileHover={{ scale: 1.2, zIndex: 300 }}
-              >
-                <Box>
-                  <img
-                    src={require("../../Image/C4.png")}
-                    alt=""
-                    width="323.31px "
-                    height="295.64px"
-                  />
-                  <Box position="absolute" ml="33.39 px" mt="226.24 px">
-                    <Heading
-                      fontWeight="800"
-                      fontSize="20"
-                      lineHeight="24 px"
-                      color="white"
-                    >
-                      Toliara Tours
-                    </Heading>
-                    <Text
-                      fontWeight="500"
-                      fontSize="20"
-                      lineHeight="24 px"
-                      color="white"
-                    >
-                      5 Jours
-                    </Text>
-                  </Box>
-                </Box>
+                  </Link>
               </motion.div>
-              <motion.div
-                animate={{ scale: 1 }}
-                initial={{ scale: 0 }}
-                transition={{ ease: "easeOut" }}
-                whileHover={{ scale: 1.2, zIndex: 300 }}
-              >
-                <Box>
-                  <img
-                    src={require("../../Image/C5.png")}
-                    alt=""
-                    width="323.31px "
-                    height="295.64px"
-                  />
-                  <Box position="absolute" ml="33.39 px" mt="226.24 px">
-                    <Heading
-                      fontWeight="800"
-                      fontSize="20"
-                      lineHeight="24 px"
-                      color="white"
-                    >
-                      Antsiranana Tours
-                    </Heading>
-                    <Text
-                      fontWeight="500"
-                      fontSize="20"
-                      lineHeight="24 px"
-                      color="white"
-                    >
-                      4 Jours
-                    </Text>
-                  </Box>
-                </Box>
-              </motion.div>
-              <motion.div
-                animate={{ scale: 1 }}
-                initial={{ scale: 0 }}
-                transition={{ ease: "easeOut" }}
-                whileHover={{ scale: 1.2, zIndex: 300 }}
-              >
-                <Box>
-                  <img
-                    src={require("../../Image/C6.png")}
-                    alt=""
-                    width="323.31px "
-                    height="295.64px"
-                  />
-                  <Box position="absolute" ml="33.39 px" mt="226.24 px">
-                    <Heading
-                      fontWeight="800"
-                      fontSize="20"
-                      lineHeight="24 px"
-                      color="white"
-                    >
-                      Antananarivo Tours
-                    </Heading>
-                    <Text
-                      fontWeight="500"
-                      fontSize="20"
-                      lineHeight="24 px"
-                      color="white"
-                    >
-                      5 Jours
-                    </Text>
-                  </Box>
-                </Box>
-              </motion.div>
-              <motion.div
-                animate={{ scale: 1 }}
-                initial={{ scale: 0 }}
-                transition={{ ease: "easeOut" }}
-                whileHover={{ scale: 1.2, zIndex: 300 }}
-              >
-                <Box>
-                  <img
-                    src={require("../../Image/C7.png")}
-                    alt=""
-                    width="323.31px "
-                    height="295.64px"
-                  />
-                  <Box position="absolute" ml="33.39 px" mt="226.24 px">
-                    <Heading
-                      fontWeight="800"
-                      fontSize="20"
-                      lineHeight="24 px"
-                      color="white"
-                    >
-                      Nosy-Be Tours
-                    </Heading>
-                    <Text
-                      fontWeight="500"
-                      fontSize="20"
-                      lineHeight="24 px"
-                      color="white"
-                    >
-                      2 Jours
-                    </Text>
-                  </Box>
-                </Box>
-              </motion.div>
-              <motion.div
-                animate={{ scale: 1 }}
-                initial={{ scale: 0 }}
-                transition={{ ease: "easeOut" }}
-                whileHover={{ scale: 1.2, zIndex: 300 }}
-              >
-                <Box>
-                  <img
-                    src={require("../../Image/C8.png")}
-                    alt=""
-                    width="323.31px "
-                    height="295.64px"
-                  />
-                  <Box position="absolute" ml="33.39 px" mt="226.24 px">
-                    <Heading
-                      fontWeight="800"
-                      fontSize="20"
-                      lineHeight="24 px"
-                      color="white"
-                    >
-                      Toliara Tours
-                    </Heading>
-                    <Text
-                      fontWeight="500"
-                      fontSize="20"
-                      lineHeight="24 px"
-                      color="white"
-                    >
-                      5 Jours
-                    </Text>
-                  </Box>
-                </Box>
-              </motion.div>
-              <motion.div
-                animate={{ scale: 1 }}
-                initial={{ scale: 0 }}
-                transition={{ ease: "easeOut" }}
-                whileHover={{ scale: 1.2, zIndex: 300 }}
-              >
-                <Box>
-                  <img
-                    src={require("../../Image/C9.png")}
-                    alt=""
-                    width="323.31px "
-                    height="295.64px"
-                  />
-                  <Box position="absolute" ml="33.39 px" mt="226.24 px">
-                    <Heading
-                      fontWeight="800"
-                      fontSize="20"
-                      lineHeight="24 px"
-                      color="white"
-                    >
-                      Antananarivo Tours
-                    </Heading>
-                    <Text
-                      fontWeight="500"
-                      fontSize="20"
-                      lineHeight="24 px"
-                      color="white"
-                    >
-                      3 Jours
-                    </Text>
-                  </Box>
-                </Box>
-              </motion.div>
-              <motion.div
-                animate={{ scale: 1 }}
-                initial={{ scale: 0 }}
-                transition={{ ease: "easeOut" }}
-                whileHover={{ scale: 1.2, zIndex: 300 }}
-              >
-                <Box>
-                  <img
-                    src={require("../../Image/C10.png")}
-                    alt=""
-                    width="323.31px "
-                    height="295.64px"
-                  />
-                  <Box position="absolute" ml="33.39 px" mt="226.24 px">
-                    <Heading
-                      fontWeight="800"
-                      fontSize="20"
-                      lineHeight="24 px"
-                      color="white"
-                    >
-                      Nosy-Be Tours
-                    </Heading>
-                    <Text
-                      fontWeight="500"
-                      fontSize="20"
-                      lineHeight="24 px"
-                      color="white"
-                    >
-                      2 Jours
-                    </Text>
-                  </Box>
-                </Box>
-              </motion.div>
-              <motion.div
-                animate={{ scale: 1 }}
-                initial={{ scale: 0 }}
-                transition={{ ease: "easeOut" }}
-                whileHover={{ scale: 1.2, zIndex: 300 }}
-              >
-                <Box>
-                  <img
-                    src={require("../../Image/C11.png")}
-                    alt=""
-                    width="323.31px "
-                    height="295.64px"
-                  />
-                  <Box position="absolute" ml="33.39 px" mt="226.24 px">
-                    <Heading
-                      fontWeight="800"
-                      fontSize="20"
-                      lineHeight="24 px"
-                      color="white"
-                    >
-                      Nosy-Be Tours
-                    </Heading>
-                    <Text
-                      fontWeight="500"
-                      fontSize="20"
-                      lineHeight="24 px"
-                      color="white"
-                    >
-                      2 Jours
-                    </Text>
-                  </Box>
-                </Box>
-              </motion.div>
-              <motion.div
-                animate={{ scale: 1 }}
-                initial={{ scale: 0 }}
-                transition={{ ease: "easeOut" }}
-                whileHover={{ scale: 1.2, zIndex: 300 }}
-              >
-                <Box>
-                  <img
-                    src={require("../../Image/C12.png")}
-                    alt=""
-                    width="323.31px "
-                    height="295.64px"
-                  />
-                  <Box position="absolute" ml="33.39 px" mt="226.24 px">
-                    <Heading
-                      fontWeight="800"
-                      fontSize="20"
-                      lineHeight="24 px"
-                      color="white"
-                    >
-                      Nosy-Be Tours
-                    </Heading>
-                    <Text
-                      fontWeight="500"
-                      fontSize="20"
-                      lineHeight="24 px"
-                      color="white"
-                    >
-                      2 Jours
-                    </Text>
-                  </Box>
-                </Box>
-              </motion.div> */}
+              )}
             </Flex>
           )}
         </Center>
@@ -566,7 +203,7 @@ export default function ListeDestinations() {
         gap="53px"
       >
         <Flex direction="column" w={{ base: "100%", md: "100%", lg: "50%" }}>
-          <div data-aos="fade-right">
+          <div data-aos="slide-up">
             <Text
               fontWeight="700"
               fontSize="20"
@@ -577,7 +214,7 @@ export default function ListeDestinations() {
               Majunga Tours
             </Text>
           </div>
-          <div data-aos="fade-right">
+          <div data-aos="fade-up">
             <Text
               fontWeight="700"
               fontSize="40"
@@ -588,7 +225,7 @@ export default function ListeDestinations() {
               Les meilleures places
             </Text>
           </div>
-          <div data-aos="fade-right">
+          <div data-aos="fade-up">
             <Flex>
               <Text
                 fontWeight="400"
@@ -612,8 +249,8 @@ export default function ListeDestinations() {
                 lectus.
               </Text>
             </Flex>
-          </div>
-          <div data-aos="fade-right">
+          {/* </div>
+          <div data-aos="fade-right"> */}
             <Flex direction="row" gap="12px" mt="12 px" alignItems="flex-end">
               <Text
                 fontWeight="700"

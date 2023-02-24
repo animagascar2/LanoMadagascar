@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Modal from 'react-bootstrap/Modal';
-import {Input} from 'native-base'
+import {Input,Box} from 'native-base'
+
 import { Button, Form, Upload,DatePicker } from "antd";
 import { mapActions,mapGetters } from "../../../store/reex";
 import moment from 'moment'
@@ -8,6 +9,7 @@ import moment from 'moment'
 export default function ModalModif(props) {
   const [hideModal,setHideModal] = useState(false);
   const [form] = Form.useForm();
+  const [show, setShow] = useState(false);
   const dateFormat = 'YYYY/MM/DD';
   const Swal = require('sweetalert2');
   const getList = mapActions('circuit/getList');
@@ -28,23 +30,35 @@ export default function ModalModif(props) {
     })
     props.onHide()
   };
+  const handleUpload = (info) => {
+    let fileList = [...info.fileList];
+    // Accept 5 files only
+    fileList = fileList.slice(-5);
+    fileList.forEach(function (file, index) {
+      let reader = new FileReader();
+      reader.onload = (e) => {
+        file.base64= e.target.result;
+      };
+      reader.readAsDataURL(file.originFileObj);
+    });
+  };
   const getFile = (e) => {
   
     if (Array.isArray(e)) {
       return e;
     }
-   return e && e.fileList;
+   return e.fileList[0];
   };
 
   return (
-    <>{
+    <Box width='100%'>{
       (props.itm)?<Modal
       show={props.show}
       itm={props.itm}
-      size="lg"
+      style={{maxwidth: "none !important"}}
       aria-labelledby="contained-modal-title-vcenter"
     >
-      <Modal.Header closeButton>
+      <Modal.Header>
         <Modal.Title id="contained-modal-title-vcenter">
           Modification
         </Modal.Title>
@@ -66,8 +80,8 @@ export default function ModalModif(props) {
       >
       <Form.Item
           label="Id"
+          style={{ display: 'none' }}
           name="idCircuitModif"
-          type="hidden"
           rules={[
             {
               required: true,
@@ -200,6 +214,7 @@ export default function ModalModif(props) {
             action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
             listType="picture"
             maxCount={1}
+            onChange={handleUpload}
             beforeUpload={(file)=>{
               return false
             }}
@@ -219,6 +234,7 @@ export default function ModalModif(props) {
             action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
             listType="picture"
             maxCount={1}
+            onChange={handleUpload}
             beforeUpload={(file)=>{
               return false
             }}
@@ -237,6 +253,7 @@ export default function ModalModif(props) {
             action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
             listType="picture"
             maxCount={1}
+            onChange={handleUpload}
             beforeUpload={(file)=>{
               return false
             }}
@@ -255,6 +272,7 @@ export default function ModalModif(props) {
             action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
             listType="picture"
             maxCount={1}
+            onChange={handleUpload}
             beforeUpload={(file)=>{
               return false
             }}
@@ -310,7 +328,7 @@ export default function ModalModif(props) {
       :<></>
     }
     
-    </>
+    </Box>
   );
 }
 

@@ -26,6 +26,7 @@ export function postModifCircuit ({ commit, getState }, v) {
     return new Promise((resolve, reject) => {
         axios.post('http://localhost/LANO/Modif.php',v)
         .then((response) => {
+            console.log(response.data)
             resolve(response.data);
         })
     })
